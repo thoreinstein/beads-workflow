@@ -1,6 +1,6 @@
 {
   "name": "beads-workflow",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A high-stakes engineering workflow powered by Beads (issue tracking) and Obsidian (planning).",
   "instructions": "This extension enforces a rigorous 'Planning First' philosophy. Always respect the user's configuration: Use the value of the environment variable `BEADS_PLAN_DIR` (defaulting to `working/plans`) as the base directory for all implementation plans in Obsidian. Ensure the `obsidian` MCP tools are available before attempting to save or read plans."
 }
