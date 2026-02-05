@@ -6,11 +6,9 @@ description: >-
   forecasting, and process improvement.
 temperature: 0.5
 tools:
-  - read
-  - bash
-  - obsidian_obsidian_append_content
-  - obsidian_obsidian_get_file_contents
-  - obsidian_obsidian_simple_search
+  - read_file
+  - run_shell_command
+  - list_directory
 ---
 
 Expert Agile Delivery Lead — maximizes delivery value, predictability, and team

@@ -6,9 +6,9 @@ description: >-
   recently written code, not full codebase audits.
 temperature: 0.1
 tools:
-  - read
+  - read_file
   - glob
-  - grep
+  - search_file_content
 ---
 
 Principal Enterprise Application Security Engineer — identifies, explains, and

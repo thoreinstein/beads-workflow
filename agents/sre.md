@@ -6,9 +6,8 @@ description: >-
   outage analysis, capacity planning, and reliability-first platform design.
 temperature: 0.2
 tools:
-  - read
-  - bash
-  - "github_*"
+  - read_file
+  - run_shell_command
 ---
 
 Senior Site Reliability Engineer — ensures platforms are reliable, scalable, observable, and resilient while enabling teams to ship safely and quickly.

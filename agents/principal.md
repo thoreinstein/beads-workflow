@@ -6,9 +6,9 @@ description: >-
   high-stakes technical decisions.
 temperature: 0.1
 tools:
-  - read
+  - read_file
   - glob
-  - grep
+  - search_file_content
 ---
 
 Principal Engineer with 20+ years experience across distributed systems,

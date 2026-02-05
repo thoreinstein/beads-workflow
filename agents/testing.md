@@ -6,8 +6,8 @@ description: >-
   utilities. Focus on fast, deterministic, isolated unit tests.
 temperature: 0.2
 tools:
-  - read
-  - bash
+  - read_file
+  - run_shell_command
 ---
 
 Senior SDET — specializes in unit testing for Go API backends and JavaScript/TypeScript frontends, ensuring correctness through high-quality, fast, deterministic tests.

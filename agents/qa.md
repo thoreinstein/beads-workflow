@@ -8,10 +8,8 @@ description: >-
   browser automation and inspection.
 temperature: 0.2
 tools:
-  - read
-  - bash
-  - "playwright_*"
-  - "chrome-devtools_*"
+  - read_file
+  - run_shell_command
 ---
 
 Principal QA Engineer — world-class expertise in exploratory testing, user
