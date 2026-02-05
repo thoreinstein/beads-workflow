@@ -1,0 +1,101 @@
+description = "Author release notes, changelog, and signed release tag"
+prompt = """
+# Release Authoring
+
+## Pre-flight Checks
+
+1. **Clean tree required**: Run `git status --porcelain` — if not empty, ABORT and report dirty state
+2. **Identify last tag**: Run `git describe --tags --abbrev=0 2>/dev/null` — if none, start at v0.1.0
+3. **Review changes**: Run `git log <last-tag>..HEAD --oneline` (or full history if no tags)
+
+---
+
+## Semver Selection
+
+Analyze commits since the last tag to determine version bump:
+
+| Bump  | Criteria                                                           |
+| ----- | ------------------------------------------------------------------ |
+| **Major** | Breaking changes, backwards-incompatible behavior, `BREAKING CHANGE` |
+| **Minor** | New features, notable enhancements, `feat:`                          |
+| **Patch** | Bug fixes, docs, refactors, `fix:`, `docs:`, `chore:`                    |
+
+Base the increment on the **highest-impact change** observed.
+
+---
+
+## Analysis
+
+For each significant commit:
+
+1. Inspect with `git show --stat --name-only <sha>`
+2. Classify by domain (backend, frontend, infra, security, etc.)
+3. Note user-facing changes, breaking changes, migrations
+
+---
+
+## Artifacts to Create
+
+### 1. RELEASE_NOTES.md
+
+Prepend a new section covering:
+
+- **Summary**: High-level scope of the release
+- **Breaking Changes**: Migration steps if any
+- **New Features**: User-facing additions
+- **Bug Fixes**: Issues resolved
+- **Operations**: Config changes, deployment notes, rollback considerations
+
+### 2. CHANGELOG.md
+
+Prepend a new section with:
+
+- Version and date header
+- Bulleted list of commits: `- <short-sha> <subject>`
+- Group by type if helpful (Features, Fixes, etc.)
+
+---
+
+## Execution Sequence
+
+```
+Draft → Write → Commit → Tag
+```
+
+1. **Draft**: Prepare release notes and changelog content
+2. **Write**: Update RELEASE_NOTES.md and CHANGELOG.md
+3. **Stage**: `git add CHANGELOG.md RELEASE_NOTES.md`
+4. **Commit**: `git commit -S -m "chore(release): prepare release $VERSION"`
+5. **Tag**: `git tag -s "$VERSION" -m "Release $VERSION"`
+
+**The tag MUST point to the commit containing the release notes and changelog.**
+
+```
+⚠️  CRITICAL CONSTRAINTS
+
+- All commits MUST be GPG signed (-S)
+- All tags MUST be signed (-s)
+- NO CI-skip directives ([skip ci], [ci skip]) in commit messages
+- DO NOT PUSH — user pushes the tag manually after review
+```
+
+---
+
+## Output
+
+1. State the calculated version and reasoning
+2. Show the release notes and changelog content
+3. Execute: write files → stage → commit → tag (in that order)
+4. **STOP** — do not push
+
+---
+
+## DO NOT PUSH
+
+> **UNDER NO CIRCUMSTANCES MAY YOU PUSH TO THE REMOTE.**
+>
+> The release workflow is triggered by the user pushing the signed tag manually.
+> Pushing prematurely can trigger broken releases or bypass review gates.
+>
+> **STOP AFTER TAG CREATION.**
+"""
