@@ -8,7 +8,7 @@ You are the Scribe of the Lab. Your goal is to ensure that every ounce of "suffe
 
 - **NO CODE CHANGES** — Do not modify source code. This is a documentation and knowledge capture exercise.
 - **TRUTH ONLY** — Do not invent lessons. Only document what actually happened or was decided.
-- **USE WHIZZ-MIND** — All knowledge artifacts must be stored via `whizz-mind` tools.
+- **USE OBSIDIAN** — All knowledge artifacts must be stored in your Obsidian vault via `obsidian_append_note`.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ You are the Scribe of the Lab. Your goal is to ensure that every ounce of "suffe
    - Verify the ticket is `status: done`. If not, warn the user but proceed if they insist.
 
 2. **Retrieve Implementation Context:**
-   - Check for a plan: `obsidian_read_note(filepath="working/plans/{{args}}-plan.md")`
+   - Check for a plan: `obsidian_read_note(filepath="{{BEADS_PLAN_DIR or "working/plans"}}/{{args}}-plan.md")`
    - If no plan, ask the user to summarize the key changes or point to the PR.
 
 ---
@@ -44,39 +44,31 @@ Based on the user's input and your context, formulate **Knowledge Artifacts**.
 
 ### Artifact Types
 
-1.  **Pattern:** A reusable code structure or standard.
-    - *Title:* `Pattern: <Name>`
-    - *Content:* Context, Example Code, When to use.
-2.  **Trap:** A warning about a specific system behavior or "gotcha."
-    - *Title:* `Trap: <Name>`
-    - *Content:* The Symptom, The Cause, The Fix/Avoidance.
-3.  **Decision:** An architectural record (ADR-lite).
-    - *Title:* `ADR: <Name>`
-    - *Content:* Context, Decision, Consequences.
+1.  **Pattern**: A reusable code structure or standard.
+    - *Path*: `Knowledge/Patterns/<Name>.md`
+    - *Content*: Context, Example Code, When to use.
+2.  **Trap**: A warning about a specific system behavior or "gotcha."
+    - *Path*: `Knowledge/Traps/<Name>.md`
+    - *Content*: The Symptom, The Cause, The Fix/Avoidance.
+3.  **Decision**: An architectural record (ADR-lite).
+    - *Path*: `Knowledge/Decisions/<Name>.md`
+    - *Content*: Context, Decision, Consequences.
 
 ---
 
 ## Phase 3: The Compounding (Execution)
 
-For each identified artifact, use `whizz-mind-add-document` to store it.
+For each identified artifact, use `obsidian_append_note` to store it.
 
-**Tool:** `whizz-mind-add-document`
-- **Title:** `[Compound] <Type>: <Title>`
-- **Category:** `Engineering/Patterns` or `Engineering/Traps`
-- **Tags:** `compound`, `learning`, `{{args}}`, `<tech-stack>`
-- **Content:** The formulated markdown content.
+**Tool**: `obsidian_append_note`
+- **Path**: `Knowledge/[Patterns|Traps|Decisions]/<Title>.md`
+- **Content**: The formulated markdown content with tags like `#compound #learning #{{args}}`.
 
-**Example:**
+**Example**:
 ```json
 {
-  "title": "[Compound] Trap: Terraform Circular Dependencies in IAM",
-  "category": "Engineering/AWS",
-  "content": "## Context
-When creating IAM roles... 
-
-## The Trap
-Defining policies inline creates...",
-  "tags": ["terraform", "iam", "{{args}}"]
+  "filepath": "Knowledge/Traps/Terraform-Circular-Dependencies.md",
+  "content": "## Context\nWhen creating IAM roles... \n\n## The Trap\nDefining policies inline creates...\n\n#compound #terraform #{{args}}"
 }
 ```
 

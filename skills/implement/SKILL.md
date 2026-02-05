@@ -261,7 +261,7 @@ Feature: Add user notification preferences (EPIC-123)
 Child Tickets: STORY-124, STORY-125, STORY-126
 
 Phase 1: Requirements Analysis
-  ✓ Loaded plan from working/plans/EPIC-123-plan.md
+  ✓ Loaded plan from {{BEADS_PLAN_DIR or "working/plans"}}/EPIC-123-plan.md
   ✓ Marked EPIC-123 as in-progress
   ✓ Committed: docs/specs/notification-prefs.md
 

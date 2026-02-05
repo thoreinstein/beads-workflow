@@ -105,7 +105,7 @@ The report should include:
 ## Output Requirements
 
 When used via `/analyze` command:
-- **Save plan to:** `working/plans/<ticket-id>-plan.md` in Obsidian vault
+- **Save plan to:** `{{BEADS_PLAN_DIR or "working/plans"}}/<ticket-id>-plan.md` in Obsidian vault
 - If Obsidian write fails, output full plan in chat and report error
 
 ## Constraints

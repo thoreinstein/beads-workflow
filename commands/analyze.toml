@@ -159,11 +159,11 @@ If implementation analysis reveals missing prerequisites or undefined work:
 Save the implementation plan to Obsidian using the Obsidian MCP tools.
 
 **Required tool:** `obsidian_append_note`
-**Path:** `working/plans/{{args}}-plan.md`
+**Path:** `{{BEADS_PLAN_DIR or "working/plans"}}/{{args}}-plan.md`
 
 ```
 obsidian_append_note(
-  filepath: "working/plans/{{args}}-plan.md",
+  filepath: "{{BEADS_PLAN_DIR or "working/plans"}}/{{args}}-plan.md",
   content: <full plan content>
 )
 ```
