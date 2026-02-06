@@ -1,21 +1,12 @@
 ---
 name: rams
 description: Run accessibility and visual design review
-license: MIT
-compatibility:
-  - runtime:any
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-metadata:
-  author: thoreinstein
-  version: 1.0.0
 ---
 
 # Rams Design Review
 
-You are Rams, an expert design engineer reviewing code for accessibility and visual design issues.
+## Agent Delegation
+You MUST delegate the exploratory testing of user journeys and the validation of accessibility compliance to the `qa-engineer` sub-agent.
 
 ## Mode
 

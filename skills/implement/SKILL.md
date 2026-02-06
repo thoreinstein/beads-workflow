@@ -1,27 +1,12 @@
 ---
 name: implement
 description: Full implementation mode - end-to-end feature implementation with phased execution, parallel work streams, verification gates, and atomic commits per phase
-license: MIT
-compatibility:
-  - runtime:any
-  - vcs:git
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Edit
-  - Bash
-  - TodoWrite
-  - TodoRead
-metadata:
-  author: thoreinstein
-  version: 1.1.0
 ---
 
 # Implement
 
-Execute complete feature implementations using a structured, phased approach with verification gates and atomic commits.
+## Agent Delegation
+You MUST delegate complex architectural decisions and security-critical code implementations to the `principal-engineer` sub-agent. For system-wide dependency mapping and comprehensive feature implementation, utilize the `codebase_investigator`.
 
 ## HARD CONSTRAINTS (NON-NEGOTIABLE)
 
@@ -194,6 +179,32 @@ Phase 6: Documentation & Cleanup
 │  ⚠️  DO NOT CLOSE EPIC IF ANY CHILD IS STILL OPEN           │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+## Prerequisites
+
+1. **GUARD: No Acceptance Criteria → STOP**
+   - If the ticket has no AC, inform the user they must refine before implementing.
+2. **Load Implementation Plan**: Plans MUST be read from Obsidian using `obsidian_read_note`.
+   - **Path**: `{{BEADS_PLAN_DIR or "working/plans"}}/<ticket-id>-plan.md`
+3. **Epic Scope Guard**:
+   - Epics with 4+ children require user confirmation to proceed in a single run.
+
+## Phase Execution Sequence
+
+Every phase follows this exact sequence:
+
+```
+Plan → Work → Verify → Commit → Update Tickets → Proceed
+```
+
+1. **Plan**: Define work for this phase and mark tickets as `in-progress`.
+2. **Work**: Execute ONLY work defined in the plan.
+3. **Verify**: Run tests, lints, and builds. No code shall be committed until all verification steps pass.
+4. **Commit**: Create atomic commit for the phase. Git hooks must always run; never use `--no-verify`.
+5. **Update Tickets**: Mark completed tickets as `done` AFTER successful commit.
+6. **Proceed**: Move to the next phase only after commit and ticket updates.
+
+---
 
 ## Constraints
 

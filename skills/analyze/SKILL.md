@@ -1,24 +1,12 @@
 ---
 name: analyze
 description: Deep analysis mode - thorough multi-phase investigation with expert consultation for complex problems requiring careful examination
-license: MIT
-compatibility:
-  - runtime:any
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Bash(git:log)
-  - Bash(git:blame)
-  - Bash(git:show)
-metadata:
-  author: thoreinstein
-  version: 1.1.0
 ---
 
 # Deep Analysis Mode
 
-Perform a comprehensive analysis using multi-phase investigation and structured synthesis.
+## Agent Delegation
+You MUST delegate system-wide dependency analysis and architectural mapping to the `codebase_investigator` sub-agent. For high-level design evaluations and technical trade-offs, consult the `software-architect`.
 
 ## HARD CONSTRAINTS (NON-NEGOTIABLE)
 
@@ -102,19 +90,76 @@ The report should include:
 | **Maintainability** | Readability, coupling, documentation    |
 | **Testability**     | Coverage, mocking, isolation            |
 
-## Output Requirements
+## Implementation Plan Workflow
 
-When used via `/analyze` command:
-- **Save plan to:** `{{BEADS_PLAN_DIR or "working/plans"}}/<ticket-id>-plan.md` in Obsidian vault
-- If Obsidian write fails, output full plan in chat and report error
+When using this skill to generate implementation plans for `/implement`:
+
+### Step 1: Scope Check (GATE)
+
+After fetching the ticket, determine its type and scope:
+
+1. **Check if Epic:** Does it have child tickets/stories?
+2. **Count children:** How many child tickets exist?
+
+#### Scope Guard
+
+| Condition | Action |
+| --------- | ------ |
+| **Single ticket (story/task)** | Proceed with analysis |
+| **Epic with 1-3 children** | Proceed — manageable scope |
+| **Epic with 4+ children** | **STOP** — Scope too large |
+
+**If scope is too large:**
+Ask the user for confirmation before proceeding with large epics, recommending analysis of individual stories instead.
+
+### Step 2: Codebase Research
+
+Research the implementation context for each ticket in scope to determine implementation order, parallelization opportunities, and shared concerns.
+
+### Step 3: Implementation Mapping
+
+For each ticket, identify specific files to modify, functions/components to change, schema changes, and test files.
+
+### Step 4: Output - Implementation Plan
+
+Produce a structured implementation plan using the following template:
+
+```markdown
+# Implementation Plan: <ticket-id>
+
+## Executive Summary
+[Summary of scope and approach]
+
+## Tickets in Scope
+| ID | Title | Status | Dependencies | Parallelizable |
+| -- | ----- | ------ | ------------ | -------------- |
+
+## Implementation Phases
+### Phase 1: <name>
+**Tickets:** <list of ticket IDs>
+#### Ticket <ID>: <title>
+- **Work:** [Specific actions]
+- **Files:** [Files to modify]
+- **Verification:** [How to verify]
+
+[Repeat for other phases]
+
+## Risk Assessment
+[Risks and mitigations]
+```
+
+### Step 5: Save Plan (MANDATORY)
+
+Plans MUST be saved using the Obsidian MCP tools (`obsidian_append_note`). Do NOT use local filesystem write tools.
+**Path:** `{{BEADS_PLAN_DIR or "working/plans"}}/<ticket-id>-plan.md`
+
+---
 
 ## Constraints
 
 - **Read-only** — analyze code, do not modify it
-- **Be thorough but focused** - analyze deeply but stay scoped to the target area
-- **Prioritize findings** - not all issues are equal; use P0/P1/P2 consistently
-- **Support claims with evidence** - reference specific files, lines, or patterns
-- **Provide actionable recommendations** - vague advice is not useful
+- **Obsidian storage** — implementation plans must be stored in the Obsidian vault
+- **No implementation** — produce plans, not code
 
 ---
 

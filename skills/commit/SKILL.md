@@ -1,26 +1,12 @@
 ---
 name: commit
 description: Analyze unstaged and staged changes, suggest atomic commit groups with conventional commit messages. NEVER pushes to remote.
-license: MIT
-compatibility:
-  - vcs:git
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Bash(git:status)
-  - Bash(git:diff)
-  - Bash(git:log)
-  - Bash(git:add)
-  - Bash(git:commit)
-metadata:
-  author: thoreinstein
-  version: 1.0.0
 ---
 
 # Commit
 
-Analyze unstaged changes and organize them into atomic, well-documented commits.
+## Agent Delegation
+You MUST delegate the review of atomic commit groupings and the evaluation of mixed-concern file changes to the `principal-engineer` sub-agent to ensure high-stakes technical decisions are correctly reflected in the git history.
 
 ## When to Use This Skill
 
@@ -28,6 +14,32 @@ Analyze unstaged changes and organize them into atomic, well-documented commits.
 - When working tree has mixed changes (features, fixes, refactors)
 - To ensure clean, reviewable git history
 - Before creating a pull request
+
+## Pre-flight Checks
+
+Before analysis:
+
+1. **Working tree state**: Run `git status --porcelain`
+2. **Conflict markers**: Run `git diff --check`
+3. **No rebase/merge in progress**: Verify no `.git/MERGE_HEAD` or `.git/REBASE_HEAD` exists
+4. **GPG signing**: All commits MUST use `git commit -S`
+
+## Staging Strategy
+
+### Mixed-Concern Files (STOP AND ASK)
+
+If a single file contains changes for multiple logical units (e.g., a bug fix AND a refactor):
+
+1. **DO NOT stage the file**
+2. **STOP and ask:** "File `<filename>` has mixed changes. Please run `git add -p <filename>` and stage only the hunks for [specific concern], then confirm when ready."
+3. Wait for confirmation before proceeding
+
+## Commit Message Standards
+
+- **Subject:** Capital verb, 50 chars max, no period
+- **Body:** Required. Blank line after subject, wrapped at 72 chars. Explain _why_.
+
+---
 
 ## Workflow
 
