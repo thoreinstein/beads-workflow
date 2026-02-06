@@ -45,10 +45,10 @@ This extension requires the following tools to be installed and configured:
 
 ## Installation
 
-Link the extension to your Gemini CLI:
+Install the extension directly via the Gemini CLI:
 
 ```bash
-gemini extensions link .
+gemini extensions install https://github.com/thoreinstein/beads-workflow.git
 ```
 
 ## Workflow Lifecycle
