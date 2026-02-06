@@ -1,15 +1,12 @@
 ---
 name: accessibility
 description: Audit and improve web accessibility following WCAG 2.1 guidelines. Use when asked to "improve accessibility", "a11y audit", "WCAG compliance", "screen reader support", "keyboard navigation", or "make accessible".
-license: MIT
-metadata:
-  author: addyosmani
-  version: "1.0"
 ---
 
 # Accessibility (a11y)
 
-Comprehensive accessibility guidelines based on WCAG 2.1 and Lighthouse accessibility audits. Goal: make content usable by everyone, including people with disabilities.
+## Agent Delegation
+You MUST delegate the manual testing of user journeys with screen readers and the validation of keyboard navigation to the `qa-engineer` sub-agent.
 
 ## WCAG Principles: POUR
 

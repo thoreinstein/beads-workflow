@@ -1,0 +1,8 @@
+description = "Audit and improve web accessibility following WCAG 2.1 guidelines"
+prompt = """
+Activate the accessibility skill to audit and improve the web accessibility of the target.
+
+{{activate_skill "accessibility"}}
+
+Target: {{args}}
+"""

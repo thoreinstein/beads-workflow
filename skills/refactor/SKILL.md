@@ -1,21 +1,12 @@
 ---
 name: refactor
 description: Analyze code and suggest refactoring opportunities with blast radius assessment, risk evaluation, and recommended order of operations
-license: MIT
-compatibility:
-  - runtime:any
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-metadata:
-  author: thoreinstein
-  version: 1.0.0
 ---
 
 # Refactor
 
-Analyze code and suggest refactoring opportunities with rationale. This is an **analysis-only skill** - it identifies and documents refactoring opportunities but does not execute them.
+## Agent Delegation
+You MUST delegate the assessment of system-wide dependencies and long-term architectural impact of refactoring choices to the `software-architect` sub-agent.
 
 ## When to Use
 

@@ -1,25 +1,12 @@
 ---
 name: code-review
 description: Comprehensive code review with security, performance, and maintainability focus. Produces structured review with APPROVE, NEEDS WORK, or BLOCK verdict.
-license: MIT
-compatibility:
-  - runtime:any
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Bash(git:diff)
-  - Bash(git:log)
-  - Bash(git:show)
-  - Bash(git:blame)
-metadata:
-  author: thoreinstein
-  version: 1.0.0
 ---
 
 # Code Review Mode
 
-Perform a comprehensive code review with structured analysis across multiple dimensions.
+## Agent Delegation
+You MUST delegate security-critical code reviews and complex architectural evaluations to the `principal-engineer` sub-agent. For OWASP Top 10 and vulnerability analysis, consult the `security-engineer`.
 
 ## When to Use This Skill
 

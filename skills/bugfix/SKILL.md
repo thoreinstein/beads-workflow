@@ -1,27 +1,12 @@
 ---
 name: bugfix
 description: Diagnose and fix bugs using hypothesis-driven debugging, diagnostic instrumentation, architecture-aware analysis, and evidence-based root cause identification
-license: MIT
-compatibility:
-  - runtime:any
-  - test-framework:any
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Edit
-  - Bash
-  - TodoWrite
-  - TodoRead
-metadata:
-  author: thoreinstein
-  version: 1.0.0
 ---
 
 # Bugfix
 
-Intelligently diagnose and fix bugs through a systematic, evidence-based approach that prioritizes understanding over guessing.
+## Agent Delegation
+You MUST delegate complex root-cause analysis and debugging of unfamiliar patterns to the `principal-engineer` sub-agent. For deep codebase investigation, utilize the `codebase_investigator`.
 
 ## When to Use
 

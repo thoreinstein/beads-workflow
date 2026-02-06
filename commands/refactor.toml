@@ -1,0 +1,8 @@
+description = "Analyze code and suggest refactoring opportunities"
+prompt = """
+Activate the refactor skill to analyze code for technical debt, smells, and refactoring opportunities.
+
+{{activate_skill "refactor"}}
+
+Target: {{args}}
+"""

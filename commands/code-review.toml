@@ -1,0 +1,8 @@
+description = "Comprehensive code review with security, performance, and maintainability focus"
+prompt = """
+Activate the code-review skill to perform a thorough review of the changes.
+
+{{activate_skill "code-review"}}
+
+Target: {{args}}
+"""
