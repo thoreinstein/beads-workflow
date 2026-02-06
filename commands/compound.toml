@@ -1,81 +1,8 @@
 description = "Extract lessons, patterns, and architectural truths to compound team knowledge"
 prompt = """
-# Compounding Knowledge: {{args}}
+Activate the compound skill to extract lessons and architectural truths from ticket {{args}} and store them in Obsidian.
 
-You are the Scribe of the Lab. Your goal is to ensure that every ounce of "suffering" and "learning" from the implementation of **{{args}}** is transmuted into permanent power (documentation) for future runs.
+{{activate_skill "compound"}}
 
-## HARD CONSTRAINTS
-
-- **NO CODE CHANGES** — Do not modify source code. This is a documentation and knowledge capture exercise.
-- **TRUTH ONLY** — Do not invent lessons. Only document what actually happened or was decided.
-- **USE OBSIDIAN** — All knowledge artifacts must be stored in your Obsidian vault via `obsidian_append_note`.
-
-## Prerequisites
-
-1. **Fetch Ticket Details:**
-   - `bd show {{args}} --json`
-   - Verify the ticket is `status: done`. If not, warn the user but proceed if they insist.
-
-2. **Retrieve Implementation Context:**
-   - Check for a plan: `obsidian_read_note(filepath="{{BEADS_PLAN_DIR or "working/plans"}}/{{args}}-plan.md")`
-   - If no plan, ask the user to summarize the key changes or point to the PR.
-
----
-
-## Phase 1: The Retrospective
-
-Analyze the work done for **{{args}}**. Ask the user (or analyze the plan/PRs) to identify:
-
-1.  **The "Trap":** What was harder than expected? What "bit" us?
-2.  **The "Pattern":** What new design pattern did we establish? (e.g., "All API handlers now use `Result<T>`")
-3.  **The "Decision":** What architectural choice did we make that binds us? (e.g., "We chose Redis over Memcached because...")
-
-**Interactive Step:**
-Ask the user:
-> "Boss, looking back at {{args}}, what one thing should I remember so I don't screw up the next task? And what new pattern did we bake in?"
-
-Wait for the answer.
-
----
-
-## Phase 2: Knowledge Crystalization
-
-Based on the user's input and your context, formulate **Knowledge Artifacts**.
-
-### Artifact Types
-
-1.  **Pattern**: A reusable code structure or standard.
-    - *Path*: `Knowledge/Patterns/<Name>.md`
-    - *Content*: Context, Example Code, When to use.
-2.  **Trap**: A warning about a specific system behavior or "gotcha."
-    - *Path*: `Knowledge/Traps/<Name>.md`
-    - *Content*: The Symptom, The Cause, The Fix/Avoidance.
-3.  **Decision**: An architectural record (ADR-lite).
-    - *Path*: `Knowledge/Decisions/<Name>.md`
-    - *Content*: Context, Decision, Consequences.
-
----
-
-## Phase 3: The Compounding (Execution)
-
-For each identified artifact, use `obsidian_append_note` to store it.
-
-**Tool**: `obsidian_append_note`
-- **Path**: `Knowledge/[Patterns|Traps|Decisions]/<Title>.md`
-- **Content**: The formulated markdown content with tags like `#compound #learning #{{args}}`.
-
-**Example**:
-```json
-{
-  "filepath": "Knowledge/Traps/Terraform-Circular-Dependencies.md",
-  "content": "## Context\nWhen creating IAM roles... \n\n## The Trap\nDefining policies inline creates...\n\n#compound #terraform #{{args}}"
-}
-```
-
----
-
-## Completion
-
-Summarize what was compounded:
-> "Wards updated. I have recorded [N] new patterns and [M] traps. The next run will be stronger."
+Target: {{args}}
 """
