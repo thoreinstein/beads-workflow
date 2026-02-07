@@ -81,6 +81,7 @@ See `references/bugfix-phases.md` for detailed phase instructions.
 
 ## Constraints
 
+- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any fix implementation. Use a descriptive name like `fix/bug-id-description`. Branch from the latest `main` or `trunk`.
 - **STOP at Phase 5** and wait for user confirmation before implementing any fix
 - **Remove ALL diagnostic instrumentation** after fix is verified
 - **Generate 5-7 hypotheses** before distilling to most likely causes

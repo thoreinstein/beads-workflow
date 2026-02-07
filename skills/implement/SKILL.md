@@ -14,10 +14,10 @@ You MUST delegate complex architectural decisions and security-critical code imp
 - **NO SCOPE CREEP** — Do not implement work from other tickets, even if it seems related or helpful.
 - **TICKET TRACKING IS MANDATORY** — Update ticket status (in-progress/done) as you work.
 - **EPIC CLOSURE RULES** — Never close an epic while child tickets remain open.
+- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any implementation work. Use a descriptive name like `feat/ticket-id-description`. Branch from the latest `main` or `trunk`.
 - **COMMIT BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the code changes for that ticket have been successfully committed.
 - **VERIFY BEFORE COMMIT** — No code shall be committed until all verification steps (tests, lint, build, etc.) have passed successfully. If any check fails, you MUST resolve the issues and re-verify before attempting to commit.
 - **NO --NO-VERIFY** — Never, under any circumstances, use the `--no-verify` flag with git commit. Pre-commit hooks must always run and pass. If they fail, fix the code. No exceptions, even if explicitly requested.
-- **NO BRANCH CREATION** — Never create branches. The agent will already be on the appropriate branch when `/implement` is invoked. Do not run `git checkout -b`, `git branch`, or `git switch -c`. Work on the current branch.
 
 ### Scope Creep Self-Check
 
@@ -194,9 +194,10 @@ Phase 6: Documentation & Cleanup
 Every phase follows this exact sequence:
 
 ```
-Plan → Work → Verify → Commit → Update Tickets → Proceed
+Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 ```
 
+0. **Branch**: Always checkout a new branch from `main`/`trunk` before starting work.
 1. **Plan**: Define work for this phase and mark tickets as `in-progress`.
 2. **Work**: Execute ONLY work defined in the plan.
 3. **Verify**: Run tests, lints, and builds. No code shall be committed until all verification steps pass.

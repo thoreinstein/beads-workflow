@@ -8,6 +8,10 @@ description: Audit and improve web accessibility following WCAG 2.1 guidelines. 
 ## Agent Delegation
 You MUST delegate the manual testing of user journeys with screen readers and the validation of keyboard navigation to the `qa-engineer` sub-agent.
 
+## MANDATES
+
+- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any code improvements. Use a descriptive name like `a11y/description`. Branch from the latest `main` or `trunk`.
+
 ## WCAG Principles: POUR
 
 | Principle | Description |

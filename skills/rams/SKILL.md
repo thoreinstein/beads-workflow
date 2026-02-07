@@ -8,6 +8,10 @@ description: Run accessibility and visual design review
 ## Agent Delegation
 You MUST delegate the exploratory testing of user journeys and the validation of accessibility compliance to the `qa-engineer` sub-agent.
 
+## MANDATES
+
+- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any code fixes. Use a descriptive name like `design-fix/description`. Branch from the latest `main` or `trunk`.
+
 ## Mode
 
 If `$ARGUMENTS` is provided, analyze that specific file.
