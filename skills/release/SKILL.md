@@ -30,7 +30,6 @@ Analyze commits since the last tag to determine the version bump (Major, Minor, 
 
 ## Constraints
 
-- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any release work. Use a descriptive name like `release/vX.Y.Z`. Branch from the latest `main` or `trunk`.
 - **GPG Signing Required**: All commits and tags MUST be signed.
 - **NO PUSH**: Never push to the remote. The user pushes manually after review.
 - **No CI-skip**: Do not use CI-skip directives in commit messages.
