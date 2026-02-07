@@ -1,3 +1,20 @@
+# Release v1.2.0
+
+## Summary
+This release focuses on workflow safety and compounding knowledge. It introduces mandatory branch creation for all code-modifying skills, enhances the `compound` skill to maintain project context via `GEMINI.md`, and adds specialized triggers for bugfixing, accessibility, and rams.
+
+## New Features
+- **Mandatory Branching**: Implementation and bugfixing skills now strictly require checking out a new descriptive branch from `main`/`trunk` before any work begins.
+- **Project Context Synthesis**: The `compound` skill now synthesizes newly identified patterns and truths into a local `GEMINI.md` file, preserving architectural context for future agent sessions.
+- **Specialized Skill Triggers**: Added native command triggers for `/accessibility`, `/bugfix`, `/rams`, and `/code-review`.
+- **Enhanced Delegation**: All core skills now explicitly delegate specialized tasks to expert sub-agents (e.g., `principal-engineer`, `security-engineer`, `qa-engineer`).
+
+## Refactors
+- **Skill Consolidation**: Refined and consolidated the `refine` and `implement` workflows to better align with high-stakes engineering standards.
+
+## Documentation
+- **Simplified Installation**: Updated installation instructions to use direct `gemini extensions install` from remote URL.
+
 # Release v1.1.0
 
 ## Summary

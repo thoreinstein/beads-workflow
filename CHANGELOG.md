@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.2.0 (2026-02-07)
+
+### Features
+- 82bb942 feat: synthesize compounded knowledge into GEMINI.md
+- d7d85fa feat: require new branch creation before starting code changes
+- f862934 feat: add command triggers and delegation for specialized skills
+- b140857 feat: implement release authoring skill
+- 78d3126 feat: implement compound knowledge skill
+
+### Refactors
+- caecd54 refactor: update core technical skills with sub-agent delegation
+- d8b7db8 refactor: consolidate refinement workflow into specialized skill
+
+### Documentation
+- 160a282 docs: simplify installation instructions
+
 ## v1.1.0 (2026-02-05)
 
 ### Features
