@@ -1,3 +1,17 @@
+# Release v1.3.0
+
+## Summary
+This release focuses on workflow flexibility and streamlining the branching strategy. It improves the branching logic and removes rigid constraints on release authoring.
+
+## New Features
+- **Smart Branching Strategy**: Implemented an improved strategy for branch management to better handle concurrent workstreams.
+
+## Refactors
+- **Flexible Release Workflow**: Removed the mandatory branch creation requirement for the `release` skill, allowing for more direct execution on the current branch.
+
+## Bug Fixes
+- **Instruction Cleanup**: Removed erroneous instructions and skill calls that were causing agent confusion.
+
 # Release v1.2.0
 
 ## Summary

@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.3.0 (2026-02-07)
+
+### Features
+- 07aa4d0 feat: implement smart branching strategy
+
+### Refactors
+- 91262a2 refactor: remove mandatory release branch constraint from release skill
+
+### Bug Fixes
+- 020f8aa Remove erroneous instructions and skill calls
+
 ## v1.2.0 (2026-02-07)
 
 ### Features
