@@ -14,7 +14,10 @@ You MUST delegate complex architectural decisions and security-critical code imp
 - **NO SCOPE CREEP** — Do not implement work from other tickets, even if it seems related or helpful.
 - **TICKET TRACKING IS MANDATORY** — Update ticket status (in-progress/done) as you work.
 - **EPIC CLOSURE RULES** — Never close an epic while child tickets remain open.
-- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any implementation work. Use a descriptive name like `feat/ticket-id-description`. Branch from the latest `main` or `trunk`.
+- **SMART BRANCHING** — Before creating a branch, check the ticket's lineage.
+    *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
+    *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
+    *   **Naming Convention**: `feat/<anchor-ticket-id>-<short-desc>` or `fix/...`
 - **COMMIT BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the code changes for that ticket have been successfully committed.
 - **VERIFY BEFORE COMMIT** — No code shall be committed until all verification steps (tests, lint, build, etc.) have passed successfully. If any check fails, you MUST resolve the issues and re-verify before attempting to commit.
 - **NO --NO-VERIFY** — Never, under any circumstances, use the `--no-verify` flag with git commit. Pre-commit hooks must always run and pass. If they fail, fix the code. No exceptions, even if explicitly requested.
@@ -197,7 +200,7 @@ Every phase follows this exact sequence:
 Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 ```
 
-0. **Branch**: Always checkout a new branch from `main`/`trunk` before starting work.
+0. **Branch**: Check for an existing feature branch. If none exists, create one based on the **Smart Branching** rules (Feature/Story level).
 1. **Plan**: Define work for this phase and mark tickets as `in-progress`.
 2. **Work**: Execute ONLY work defined in the plan.
 3. **Verify**: Run tests, lints, and builds. No code shall be committed until all verification steps pass.

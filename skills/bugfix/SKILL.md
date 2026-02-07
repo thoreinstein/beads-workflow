@@ -81,7 +81,10 @@ See `references/bugfix-phases.md` for detailed phase instructions.
 
 ## Constraints
 
-- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any fix implementation. Use a descriptive name like `fix/bug-id-description`. Branch from the latest `main` or `trunk`.
+- **SMART BRANCHING** — Before creating a branch, check the ticket's lineage.
+    *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
+    *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
+    *   **Naming Convention**: `fix/<anchor-ticket-id>-<short-desc>`
 - **STOP at Phase 5** and wait for user confirmation before implementing any fix
 - **Remove ALL diagnostic instrumentation** after fix is verified
 - **Generate 5-7 hypotheses** before distilling to most likely causes

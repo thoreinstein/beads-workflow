@@ -10,7 +10,10 @@ You MUST delegate the manual testing of user journeys with screen readers and th
 
 ## MANDATES
 
-- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any code improvements. Use a descriptive name like `a11y/description`. Branch from the latest `main` or `trunk`.
+- **SMART BRANCHING** — Before creating a branch, check the ticket's lineage.
+    *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
+    *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
+    *   **Naming Convention**: `a11y/<anchor-ticket-id>-<short-desc>`
 
 ## WCAG Principles: POUR
 

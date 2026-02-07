@@ -10,7 +10,10 @@ You MUST delegate the exploratory testing of user journeys and the validation of
 
 ## MANDATES
 
-- **NEW BRANCH MANDATORY** — Always checkout a new branch before starting any code fixes. Use a descriptive name like `design-fix/description`. Branch from the latest `main` or `trunk`.
+- **SMART BRANCHING** — Before creating a branch, check the ticket's lineage.
+    *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
+    *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
+    *   **Naming Convention**: `design-fix/<anchor-ticket-id>-<short-desc>`
 
 ## Mode
 
