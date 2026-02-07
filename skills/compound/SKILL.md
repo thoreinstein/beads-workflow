@@ -32,14 +32,16 @@ Formulate **Knowledge Artifacts**:
 3.  **Decision**: An architectural record (ADR-lite).
     - *Path*: `Knowledge/Decisions/<Name>.md`
 
-### Phase 3: The Compounding (Execution)
+### Phase 4: Project Synthesis (GEMINI.md)
 
-Use `obsidian_append_note` to store artifacts in the Obsidian vault.
-**Path**: `Knowledge/[Patterns|Traps|Decisions]/<Title>.md`
-**Tags**: Include `#compound #learning #<ticket-id>`.
+After storing artifacts in Obsidian, synthesize the new knowledge to update the `GEMINI.md` file in the project root. This file serves as the long-term project context for future agent sessions.
+
+1.  **Read** the current `GEMINI.md` (create it if it doesn't exist).
+2.  **Append** or integrate new patterns, conventions, or "traps" identified in this session.
+3.  **Ensure** the information is structured for maximum utility in future prompts.
 
 ## Constraints
 
-- **NO CODE CHANGES** — Analysis and documentation only.
+- **GEMINI.md UPDATES ONLY** — No changes to source code. Analysis and context documentation only.
 - **TRUTH ONLY** — Document actual occurrences and decisions.
-- **USE OBSIDIAN** — All artifacts must be stored in the Obsidian vault.
+- **USE OBSIDIAN** — Knowledge artifacts must be stored in the Obsidian vault.

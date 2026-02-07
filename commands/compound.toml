@@ -1,6 +1,6 @@
-description = "Extract lessons, patterns, and architectural truths to compound team knowledge"
+description = "Extract lessons, patterns, and architectural truths to compound team knowledge and update project context"
 prompt = """
-Activate the compound skill to extract lessons and architectural truths from ticket {{args}} and store them in Obsidian.
+Activate the compound skill to extract lessons and architectural truths from ticket {{args}}, store them in Obsidian, and synthesize them into the project's GEMINI.md.
 
 {{activate_skill "compound"}}
 
