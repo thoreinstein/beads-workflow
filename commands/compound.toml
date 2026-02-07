@@ -2,7 +2,5 @@ description = "Extract lessons, patterns, and architectural truths to compound t
 prompt = """
 Activate the compound skill to extract lessons and architectural truths from ticket {{args}}, store them in Obsidian, and synthesize them into the project's GEMINI.md.
 
-{{activate_skill "compound"}}
-
 Target: {{args}}
 """

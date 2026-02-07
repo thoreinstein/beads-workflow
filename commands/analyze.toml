@@ -2,7 +2,5 @@ description = "Analyze a ticket and generate an implementation plan in Obsidian"
 prompt = """
 Activate the analyze skill to perform a deep analysis of ticket {{args}} and generate a structured implementation plan.
 
-{{activate_skill "analyze"}}
-
 Target: {{args}}
 """

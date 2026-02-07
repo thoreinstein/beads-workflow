@@ -2,8 +2,6 @@ description = "Refine an epic into high-level stories through cross-functional a
 prompt = """
 Activate the refine skill to facilitate a conversation and refine epic {{args}}.
 
-{{activate_skill "refine"}}
-
 Target Epic: {{args}}
 Mode: Epic Refinement
 """

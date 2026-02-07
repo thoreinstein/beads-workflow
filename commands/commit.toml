@@ -2,7 +2,5 @@ description = "Analyze unstaged and staged changes, suggest atomic commit groups
 prompt = """
 Activate the commit skill to analyze changes and organize them into atomic, well-documented commits.
 
-{{activate_skill "commit"}}
-
 Focus: {{args}}
 """

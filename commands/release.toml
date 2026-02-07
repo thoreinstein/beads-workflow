@@ -1,6 +1,4 @@
 description = "Author release notes, changelog, and signed release tag"
 prompt = """
 Activate the release skill to author release notes, update the changelog, and create a signed release tag.
-
-{{activate_skill "release"}}
 """

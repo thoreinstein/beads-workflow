@@ -2,7 +2,5 @@ description = "Execute an implementation plan with phase-gated commits"
 prompt = """
 Activate the implement skill to execute the implementation plan for ticket {{args}}.
 
-{{activate_skill "implement"}}
-
 Target: {{args}}
 """
