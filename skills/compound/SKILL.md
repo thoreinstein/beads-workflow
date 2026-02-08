@@ -23,14 +23,19 @@ Ask the user for their perspective on what should be remembered and what new pat
 
 ### Phase 2: Knowledge Crystalization
 
-Formulate **Knowledge Artifacts**:
+Formulate **Knowledge Artifacts**.
 
+**Path Logic:**
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Base Path**: `working/<project-name>/knowledge`
+
+**Artifacts:**
 1.  **Pattern**: A reusable code structure or standard.
-    - *Path*: `Knowledge/Patterns/<Name>.md`
+    - *Path*: `<Base Path>/patterns/<Name>.md`
 2.  **Trap**: A warning about a specific system behavior or "gotcha."
-    - *Path*: `Knowledge/Traps/<Name>.md`
+    - *Path*: `<Base Path>/traps/<Name>.md`
 3.  **Decision**: An architectural record (ADR-lite).
-    - *Path*: `Knowledge/Decisions/<Name>.md`
+    - *Path*: `<Base Path>/decisions/<Name>.md`
 
 ### Phase 4: Project Synthesis (GEMINI.md)
 

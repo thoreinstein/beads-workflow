@@ -150,8 +150,13 @@ Produce a structured implementation plan using the following template:
 
 ### Step 5: Save Plan (MANDATORY)
 
-Plans MUST be saved using the Obsidian MCP tools (`obsidian_append_note`). Do NOT use local filesystem write tools.
-**Path:** `{{BEADS_PLAN_DIR or "working/plans"}}/<ticket-id>-plan.md`
+Plans MUST be saved using the Obsidian MCP tools (`obsidian_create_note`). Do NOT use local filesystem write tools.
+
+**Path Logic:**
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Construct Path**: `working/<project-name>/plans/<ticket-id>-plan.md`
+
+Example: If project is `beads-workflow` and ticket is `TASK-1`, path is `working/beads-workflow/plans/TASK-1-plan.md`.
 
 ---
 

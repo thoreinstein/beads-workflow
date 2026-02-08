@@ -190,7 +190,9 @@ Phase 6: Documentation & Cleanup
 1. **GUARD: No Acceptance Criteria → STOP**
    - If the ticket has no AC, inform the user they must refine before implementing.
 2. **Load Implementation Plan**: Plans MUST be read from Obsidian using `obsidian_read_note`.
-   - **Path**: `{{BEADS_PLAN_DIR or "working/plans"}}/<ticket-id>-plan.md`
+   - **Path Logic**:
+     1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+     2. **Construct Path**: `working/<project-name>/plans/<ticket-id>-plan.md`
 3. **Epic Scope Guard**:
    - Epics with 4+ children require user confirmation to proceed in a single run.
 
@@ -280,7 +282,7 @@ Feature: Add user notification preferences (EPIC-123)
 Child Tickets: STORY-124, STORY-125, STORY-126
 
 Phase 1: Requirements Analysis
-  ✓ Loaded plan from {{BEADS_PLAN_DIR or "working/plans"}}/EPIC-123-plan.md
+  ✓ Loaded plan from working/<project>/plans/EPIC-123-plan.md
   ✓ Marked EPIC-123 as in-progress
   ✓ Committed: docs/specs/notification-prefs.md
 
