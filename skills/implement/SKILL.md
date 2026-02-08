@@ -132,7 +132,7 @@ Phase 3: Implementation
   - [ ] [Specific implementation tasks from plan]
   - [ ] Write tests
   - [ ] Commit implementation
-  - [ ] Update ticket status → done
+  - [ ] Update ticket status → in-progress (keep until PR merge)
 
 Phase 4: Integration
   - [ ] Integrate components

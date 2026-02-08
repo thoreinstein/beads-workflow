@@ -36,7 +36,7 @@ If a single file contains changes for multiple logical units (e.g., a bug fix AN
 
 ## Commit Message Standards
 
-- **Subject:** Capital verb, 50 chars max, no period
+- **Subject:** Conventional Commit format: `<type>: <Capitalized imperative verb phrase>`, 50 chars max, no period
 - **Body:** Required. Blank line after subject, wrapped at 72 chars. Explain _why_.
 
 ---
@@ -100,7 +100,7 @@ modified:   README.md
 **Group 1: Bug fix (independent)**
 ```
 Files: internal/util/strings.go
-Message: fix: handle empty string edge case in TrimSafe
+Message: fix: Handle empty string edge case in TrimSafe
 
 Rationale: Standalone fix, no dependencies on other changes
 ```
@@ -108,7 +108,7 @@ Rationale: Standalone fix, no dependencies on other changes
 **Group 2: Feature (with tests)**
 ```
 Files: internal/api/users.go, internal/api/users_test.go
-Message: feat: add email validation to user creation endpoint
+Message: feat: Add email validation to user creation endpoint
 
 Rationale: Handler and its tests belong together as one logical unit
 ```
@@ -116,7 +116,7 @@ Rationale: Handler and its tests belong together as one logical unit
 **Group 3: Documentation (independent)**
 ```
 Files: README.md
-Message: docs: add API usage examples
+Message: docs: Add API usage examples
 
 Rationale: Documentation update, independent of code changes
 ```
