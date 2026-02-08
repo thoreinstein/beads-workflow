@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.4.0 (2026-02-08)
+
+### Features
+- 6e81597 feat(release): automate version bumping in project files
+- 6d2e975 feat(commit): require interactive staging for mixed changes
+
+### Documentation
+- 4f6b215 docs: implement 'merge before close' guardrail
+- b27dcf8 docs: add trunk branch guardrail to smart branching logic
+- 78d2576 docs: standardize Obsidian vault directory structure
+- 1c63d3e docs: require YAML frontmatter for knowledge artifacts
+- 854b2fd docs: Resolve skill instruction inconsistencies
+- 79a7657 docs: fix numbering gaps and add missing merge-before-close constraint
+- f4e437e docs: fix cross-file inconsistencies found in project review
+
 ## v1.3.0 (2026-02-07)
 
 ### Features
@@ -7,33 +22,3 @@
 
 ### Refactors
 - 91262a2 refactor: remove mandatory release branch constraint from release skill
-
-### Bug Fixes
-- 020f8aa Remove erroneous instructions and skill calls
-
-## v1.2.0 (2026-02-07)
-
-### Features
-- 82bb942 feat: synthesize compounded knowledge into GEMINI.md
-- d7d85fa feat: require new branch creation before starting code changes
-- f862934 feat: add command triggers and delegation for specialized skills
-- b140857 feat: implement release authoring skill
-- 78d3126 feat: implement compound knowledge skill
-
-### Refactors
-- caecd54 refactor: update core technical skills with sub-agent delegation
-- d8b7db8 refactor: consolidate refinement workflow into specialized skill
-
-### Documentation
-- 160a282 docs: simplify installation instructions
-
-## v1.1.0 (2026-02-05)
-
-### Features
-- 6103341 FEAT support configurable plan directory and fix compound tools
-
-### Refactors
-- 1d3e445 REFACTOR update agent tool definitions to current standards
-
-### Documentation
-- 24a187c DOCS add README with prerequisites and configuration
