@@ -290,7 +290,7 @@ Use the template at `references/templates/implementation-summary.md` to document
 
 ### Step 6.3: Clean Up Task Tracking
 
-- Mark all tasks as completed
+- Mark all tickets as 'done' using `bd update <id> --status done` (ONLY after the Pull Request is merged)
 - Cancel any tasks that became unnecessary
 - Archive or delete the task list
 
@@ -299,9 +299,9 @@ Use the template at `references/templates/implementation-summary.md` to document
 Confirm:
 
 - [ ] No uncommitted changes remain
-- [ ] All tasks marked complete or cancelled
+- [ ] All tickets marked 'done' AFTER successful merge
 - [ ] Implementation summary documented
-- [ ] Ready for review/merge
+- [ ] Code is present in the trunk branch (main/master)
 
 ### Step 6.5: Final Commit
 
@@ -318,6 +318,6 @@ Commit documentation updates.
 | 3. Implementation | Commit | Code complete, tests written |
 | 4. Integration | Commit | Components integrated, conflicts resolved |
 | 5. Verification | Commit | All checks pass |
-| 6. Documentation | Commit | Docs updated, cleanup complete |
+| 6. Documentation | Merge | PR merged, tickets updated |
 
-**Remember:** Each phase ends with a commit. Do not proceed to the next phase until the current phase is committed.
+**Remember:** Each phase ends with a commit. Do not proceed to the next phase until the current phase is committed. The entire process is not complete until the PR is merged and tickets are marked 'done'.

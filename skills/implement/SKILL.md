@@ -21,7 +21,7 @@ You MUST delegate complex architectural decisions and security-critical code imp
         *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
         *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
     *   **Naming Convention**: `feat/<anchor-ticket-id>-<short-desc>` or `fix/...`
-- **COMMIT BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the code changes for that ticket have been successfully committed.
+- **MERGE BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the Pull Request containing its changes has been successfully merged into the trunk branch. This ensures that any review feedback is addressed while the ticket is still 'in-progress'.
 - **VERIFY BEFORE COMMIT** — No code shall be committed until all verification steps (tests, lint, build, etc.) have passed successfully. If any check fails, you MUST resolve the issues and re-verify before attempting to commit.
 - **NO --NO-VERIFY** — Never, under any circumstances, use the `--no-verify` flag with git commit. Pre-commit hooks must always run and pass. If they fail, fix the code. No exceptions, even if explicitly requested.
 
@@ -47,11 +47,11 @@ If you discover related work, add it to "Discovered Follow-Up Items" and continu
 # Starting work on a ticket
 bd update <ticket-id> --status in-progress
 
-# Completing a ticket
+# Completing a ticket (ONLY AFTER PR MERGE)
 bd update <ticket-id> --status done
 
 # Verify epic children before closing
-bd show <epic-id> --json  # All children must be status:done
+bd show <epic-id> --json  # All children must be status:done (merged)
 ```
 
 ### Status Update Rules
@@ -60,7 +60,7 @@ bd show <epic-id> --json  # All children must be status:done
 | ----- | ------ |
 | Starting implementation | Mark parent ticket in-progress |
 | Starting a child ticket in a phase | Mark child in-progress |
-| Completing a child ticket | Mark child done |
+| Pull Request Merged | Mark affected tickets done |
 | ALL children done → close epic | Mark epic done |
 
 **NEVER close an epic while children are still open.**
@@ -86,17 +86,16 @@ Every phase follows this exact sequence:
 │   4. COMMIT   → Create atomic commit for phase              │
 │                 Include ticket IDs in commit message        │
 │                                                             │
-│   5. UPDATE   → Mark completed tickets as done              │
-│                 bd update <ticket-id> --status done         │
+│   5. UPDATE   → Mark tickets done ONLY after merge          │
+│                 Keep in_progress while PR is pending        │
 │                                                             │
-│   6. PROCEED  → Only after commit + ticket updates          │
-│                 Move to next phase                          │
+│   6. PROCEED  → Move to next phase                          │
 │                                                             │
 │   ⚠️  DO NOT PROCEED UNTIL COMMIT SUCCEEDS AND TICKETS      │
-│       ARE UPDATED                                           │
+│       ARE UPDATED (IF MERGED)                               │
 │                                                             │
 │   ⚠️  NEVER mark a ticket done until its changes are        │
-│       committed.                                            │
+│       merged into the trunk branch.                         │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -173,15 +172,15 @@ Phase 6: Documentation & Cleanup
 ┌─────────────────────────────────────────────────────────────┐
 │  EPIC COMPLETION GATE                                       │
 ├─────────────────────────────────────────────────────────────┤
-│  [ ] ALL child tickets are status: done                     │
+│  [ ] ALL child tickets are status: done (merged)            │
 │  [ ] All phases in the plan are complete                    │
-│  [ ] All commits are pushed (if applicable)                 │
+│  [ ] All commits are pushed and PRs merged                  │
 │  [ ] No uncommitted changes remain                          │
 │  [ ] Implementation summary documented                      │
 │  [ ] Final commit completed (if needed)                     │
 │  [ ] Follow-up items captured                               │
 │                                                             │
-│  ⚠️  COMMIT ALL CHANGES BEFORE CLOSING EPIC                 │
+│  ⚠️  MERGE ALL PRs BEFORE CLOSING EPIC                      │
 │  ⚠️  DO NOT CLOSE EPIC IF ANY CHILD IS STILL OPEN           │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -208,8 +207,8 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 2. **Work**: Execute ONLY work defined in the plan.
 3. **Verify**: Run tests, lints, and builds. No code shall be committed until all verification steps pass.
 4. **Commit**: Create atomic commit for the phase. Git hooks must always run; never use `--no-verify`.
-5. **Update Tickets**: Mark completed tickets as `done` AFTER successful commit.
-6. **Proceed**: Move to the next phase only after commit and ticket updates.
+5. **Update Tickets**: Mark completed tickets as `done` ONLY after successful merge. Keep tickets `in-progress` if a PR is pending or review is required.
+6. **Proceed**: Move to the next phase only after commit and ticket updates (or merge confirmation).
 
 ---
 
@@ -222,7 +221,8 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 - **No --no-verify**: Never bypass git hooks. If hooks fail, the code is not ready to be committed.
 - **Track everything**: Update ticket status in real-time, not at the end
 - **Clean completion**: No uncommitted changes, all tickets closed
-- **No premature closure**: Epic stays open until all children are done
+- **No premature closure**: Epic stays open until all children are merged and done
+- **Merge is Done**: A ticket is only 'done' when its code is in the trunk branch.
 
 ## Implementation Output
 
@@ -237,7 +237,7 @@ At completion, document the implementation:
 ### Tickets Completed
 | Ticket | Title | Status |
 | ------ | ----- | ------ |
-| ... | ... | done |
+| ... | ... | done (merged) |
 
 ### Files Changed
 - `path/to/file` — [what changed]
@@ -253,6 +253,7 @@ At completion, document the implementation:
 - [ ] All diagnostics clean
 - [ ] Tests passing
 - [ ] Build succeeds
+- [ ] PR merged into trunk branch
 
 ### Commits Made
 - [Commit hash] — [Phase X: description]
@@ -293,12 +294,14 @@ Phase 3: Implementation
     ✓ Created preferences table migration
     ✓ Added PreferencesService
     ✓ Committed: feat(STORY-124): add notification preferences backend
+    ✓ PR Created and Merged ✓
     ✓ Marked STORY-124 done
 
   STORY-125 (frontend):
     ✓ Marked STORY-125 in-progress
     ✓ Added preferences UI component
     ✓ Committed: feat(STORY-125): add notification preferences UI
+    ✓ PR Created and Merged ✓
     ✓ Marked STORY-125 done
 
 Phase 4: Integration
@@ -307,6 +310,7 @@ Phase 4: Integration
     ✓ Connected UI to API
     ✓ Added e2e tests
     ✓ Committed: chore(STORY-126): integrate notification preferences
+    ✓ PR Created and Merged ✓
     ✓ Marked STORY-126 done
 
 Phase 5: Verification
@@ -319,7 +323,7 @@ Phase 6: Documentation & Cleanup
   ✓ Created implementation summary
   ✓ Verified all children done: STORY-124 ✓, STORY-125 ✓, STORY-126 ✓
   ✓ Committed: docs: notification preferences
-  ✓ Marked EPIC-123 done
+  ✓ Marked EPIC-123 done (after final merge)
 
 Implementation complete!
 ```

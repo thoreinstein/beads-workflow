@@ -353,16 +353,10 @@ If pattern or best practice identified, update architecture docs with:
 - Pitfalls to avoid
 - Recommended approaches
 
-### Step 8.2: Create Bug Resolution Document
+### Step 8.3: Finalize and Close
 
-Use template: `references/templates/resolution.md`
-
-Document:
-- Summary of fix
-- Root cause explanation
-- Files changed
-- Testing performed
-- Prevention strategies
+- Ensure Pull Request is merged into trunk branch
+- Mark ticket as 'done' using `bd update <id> --status done` (ONLY after merge)
 
 ---
 
@@ -392,3 +386,5 @@ Document:
 ### Documentation Phase
 - [ ] Architecture docs updated (if applicable)
 - [ ] Resolution document created
+- [ ] Pull Request merged into trunk branch
+- [ ] Ticket marked 'done' (ONLY after merge)
