@@ -10,9 +10,12 @@ You MUST delegate the manual testing of user journeys with screen readers and th
 
 ## MANDATES
 
-- **SMART BRANCHING** — Before creating a branch, check the ticket's lineage.
-    *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
-    *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
+- **SMART BRANCHING** — Before creating a branch, check the current environment.
+    *   **Trunk Check**: ONLY create a new branch if the current branch is a "trunk" branch (e.g., `main`, `master`).
+    *   **Existing Branch**: If already on a non-trunk branch (e.g., a feature branch or a branch with an open PR), continue working on the current branch.
+    *   **Lineage Check**: If on a trunk branch and a new branch is needed, check the ticket's lineage:
+        *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
+        *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
     *   **Naming Convention**: `a11y/<anchor-ticket-id>-<short-desc>`
 
 ## WCAG Principles: POUR
