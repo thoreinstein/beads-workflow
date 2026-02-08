@@ -17,16 +17,19 @@ You MUST delegate the coordination of release artifacts and stakeholder communic
 ### 2. Semver Selection
 Analyze commits since the last tag to determine the version bump (Major, Minor, or Patch) based on the highest-impact change.
 
-### 3. Artifact Creation
+### 3. Artifact Creation & Version Bumping
+- **Identify Version Files**: Find files containing the current version (e.g., `package.json`, `gemini-extension.json`, `Cargo.toml`, `pyproject.toml`).
+- **Update Versions**: Increment the version string in these files to the new selected version.
 - **RELEASE_NOTES.md**: Prepend summary, breaking changes, new features, bug fixes, and operational notes.
 - **CHANGELOG.md**: Prepend version header and bulleted list of commits.
 
 ### 4. Execution Sequence
-1.  **Draft** content.
-2.  **Write** to files.
-3.  **Stage** changes.
-4.  **Commit** with GPG signature (`git commit -S`).
-5.  **Tag** with GPG signature (`git tag -s`).
+1.  **Draft** release content.
+2.  **Update** version in identified project files.
+3.  **Write** release notes and changelog.
+4.  **Stage** all changes (artifacts and version updates).
+5.  **Commit** with GPG signature (`git commit -S`).
+6.  **Tag** with GPG signature (`git tag -s`).
 
 ## Constraints
 
