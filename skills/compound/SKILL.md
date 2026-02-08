@@ -49,7 +49,7 @@ created: YYYY-MM-DD
 3.  **Decision**: An architectural record (ADR-lite).
     - *Path*: `<Base Path>/decisions/<Name>.md`
 
-### Phase 4: Project Synthesis (GEMINI.md)
+### Phase 3: Project Synthesis (GEMINI.md)
 
 After storing artifacts in Obsidian, synthesize the new knowledge to update the `GEMINI.md` file in the project root. This file serves as the long-term project context for future agent sessions.
 

@@ -353,7 +353,7 @@ If pattern or best practice identified, update architecture docs with:
 - Pitfalls to avoid
 - Recommended approaches
 
-### Step 8.3: Finalize and Close
+### Step 8.2: Finalize and Close
 
 - Ensure Pull Request is merged into trunk branch
 - Mark ticket as 'done' using `bd update <id> --status done` (ONLY after merge)

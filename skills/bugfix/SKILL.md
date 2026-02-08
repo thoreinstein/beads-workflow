@@ -88,6 +88,7 @@ See `references/bugfix-phases.md` for detailed phase instructions.
         *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
         *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
     *   **Naming Convention**: `fix/<anchor-ticket-id>-<short-desc>`
+- **MERGE BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the Pull Request containing its changes has been successfully merged into the trunk branch. This ensures that any review feedback is addressed while the ticket is still 'in-progress'.
 - **STOP at Phase 5** and wait for user confirmation before implementing any fix
 - **Remove ALL diagnostic instrumentation** after fix is verified
 - **Generate 5-7 hypotheses** before distilling to most likely causes
