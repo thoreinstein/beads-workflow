@@ -28,11 +28,14 @@ Before analysis:
 
 ### Mixed-Concern Files (STOP AND ASK)
 
-If a single file contains changes for multiple logical units (e.g., a bug fix AND a refactor):
+If a single file contains changes for multiple logical units (e.g., a bug fix AND a refactor) that requires interactive staging:
 
-1. **DO NOT stage the file**
-2. **STOP and ask:** "File `<filename>` has mixed changes. Please run `git add -p <filename>` and stage only the hunks for [specific concern], then confirm when ready."
-3. Wait for confirmation before proceeding
+1. **Analyze Hunks**: Carefully review the `git diff` for the file to identify individual hunks.
+2. **Determine Sequence**: Create a sequence of 'y' (yes) or 'n' (no) for each hunk, corresponding to the logical unit you are currently preparing to commit.
+3. **STOP and Instruct**:
+    - **DO NOT** attempt to run `git add -p` yourself.
+    - **DO** output: "File `<filename>` has mixed changes. Please run `git add -p <filename>` and apply the following sequence: `y, n, y...` (corresponding to the hunks for [logical unit])."
+4. **Wait**: Explicitly wait for the user to confirm they have staged the correct hunks before creating the commit.
 
 ## Commit Message Standards
 
