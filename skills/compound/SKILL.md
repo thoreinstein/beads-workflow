@@ -30,6 +30,18 @@ Formulate **Knowledge Artifacts**.
 2. **Base Path**: `working/<project-name>/knowledge`
 
 **Artifacts:**
+All artifacts MUST include YAML frontmatter with the following metadata:
+```yaml
+---
+type: [pattern | trap | decision]
+project: <project-name>
+language: [typescript | go | python | etc]
+status: [draft | active | deprecated]
+tags: [tag1, tag2]
+created: YYYY-MM-DD
+---
+```
+
 1.  **Pattern**: A reusable code structure or standard.
     - *Path*: `<Base Path>/patterns/<Name>.md`
 2.  **Trap**: A warning about a specific system behavior or "gotcha."
