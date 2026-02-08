@@ -6,7 +6,7 @@ description: Full implementation mode - end-to-end feature implementation with p
 # Implement
 
 ## Agent Delegation
-You MUST delegate complex architectural decisions and security-critical code implementations to the `principal-engineer` sub-agent. For system-wide dependency mapping and comprehensive feature implementation, utilize the `codebase_investigator`.
+You MUST delegate complex architectural decisions and security-critical code implementations to the `principal-engineer` sub-agent. For system-wide dependency mapping and comprehensive feature implementation, utilize the `codebase_investigator`. For unit test creation and test strategy, delegate to the `sdet` sub-agent.
 
 ## HARD CONSTRAINTS (NON-NEGOTIABLE)
 

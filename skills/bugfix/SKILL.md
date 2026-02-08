@@ -6,7 +6,7 @@ description: Diagnose and fix bugs using hypothesis-driven debugging, diagnostic
 # Bugfix
 
 ## Agent Delegation
-You MUST delegate complex root-cause analysis and debugging of unfamiliar patterns to the `principal-engineer` sub-agent. For deep codebase investigation, utilize the `codebase_investigator`.
+You MUST delegate complex root-cause analysis and debugging of unfamiliar patterns to the `principal-engineer` sub-agent. For deep codebase investigation, utilize the `codebase_investigator`. For unit test creation and verification of fix correctness, delegate to the `sdet` sub-agent.
 
 ## When to Use
 
@@ -107,22 +107,22 @@ See `references/bugfix-phases.md` for detailed phase instructions.
 ```
 Bug Diagnosis: Null Pointer in User Service
 
-Architecture Check:
+Phase 1: Context Gathering
 - Read /docs/architecture/data-model.md
 - Identified User entity and relationships
 - Found service layer patterns
 
-Phase 1: Adding Diagnostics
+Phase 2: Diagnostic Instrumentation
 - Added 8 diagnostic log points
 - Added error boundaries
 - Added state tracking
 
-Phase 2: Reproduction
+Phase 3: Reproduce & Analyze
 - Bug reproduced (100% success rate)
 - Diagnostic data collected
 - Timeline: Error at T+45ms
 
-Phase 3: Hypothesis Generation
+Phase 4: Hypothesis Generation
 
 Generated 5 hypotheses:
 1. Missing eager loading (HIGH)

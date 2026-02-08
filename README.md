@@ -15,14 +15,18 @@ This extension enforces a rigorous "Planning First" philosophy, ensuring that ev
 
 | Command | Description |
 | :--- | :--- |
+| `/accessibility [target]` | Audits and improves web accessibility following WCAG 2.1 guidelines. |
 | `/analyze <id>` | Fetches a ticket from Beads and generates a detailed implementation plan in Obsidian. |
-| `/implement <id>` | Executes a plan from Obsidian, following phased gates and atomic commits. |
+| `/bugfix <id>` | Diagnoses and fixes bugs using hypothesis-driven debugging. |
+| `/code-review [target]` | Performs comprehensive code review with security, performance, and maintainability focus. |
 | `/commit [focus]` | Analyzes changes and creates atomic commits with conventional messages. |
 | `/compound <id>` | Transmutes implementation lessons into permanent knowledge artifacts. |
 | `/epic <id>` | Refines a large feature into high-level stories through PM analysis. |
-| `/story <id>` | Refines a story into technical tasks. |
+| `/implement <id>` | Executes a plan from Obsidian, following phased gates and atomic commits. |
 | `/rams [file]` | Runs an expert accessibility and visual design review. |
+| `/refactor [target]` | Analyzes code and suggests refactoring opportunities with blast radius assessment. |
 | `/release` | Authors release notes, changelogs, and creates signed release tags. |
+| `/story <id>` | Refines a story into technical tasks. |
 
 ## Specialized Agents
 
@@ -66,5 +70,6 @@ The extension uses the following environment variables:
 
 *   `OBSIDIAN_VAULT_PATH`: (Required) The absolute path to your Obsidian vault.
 *   `BEADS_PLAN_DIR`: (Optional) The directory within your Obsidian vault where plans are stored. Defaults to `working/plans`.
+*   `BEADS_PROJECT_NAME`: (Optional) The project name used for Obsidian vault paths. Defaults to the current directory name.
 
 Ensure these are set in your shell profile or provided to the Gemini CLI.

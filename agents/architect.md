@@ -51,7 +51,9 @@ You do NOT hand plans back to Thor to save. You save them directly.
 
 ### Obsidian Path Convention
 
-Save analysis plans to: `{{BEADS_PLAN_DIR or "working/plans"}}/<epic-id>-plan.md`
+**Path Logic:**
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Construct Path**: `working/<project-name>/plans/<ticket-id>-plan.md`
 
 ## Methodology
 
