@@ -76,6 +76,11 @@ You MUST delegate the assessment of system-wide dependencies and long-term archi
 
 Document the analysis using the template at `references/templates/refactor-analysis.md`.
 
+**Path Logic:**
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Construct Path**: `working/<project-name>/refactor/<target-name>/analysis.md`
+   (Sanitize `<target-name>` to be filesystem-friendly, e.g., `pkg-auth-handler`)
+
 The analysis should include:
 - Code smells identified with locations
 - Suggested refactorings with risk assessment

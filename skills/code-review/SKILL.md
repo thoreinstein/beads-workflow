@@ -47,6 +47,11 @@ Evaluate the code against each dimension in the Review Dimensions section below.
 
 Produce a structured review following the template in `references/code-review-template.md`.
 
+**Path Logic:**
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Identify Review Target**: Use the PR number (e.g., `PR-123`) or Branch name (e.g., `feature-auth`).
+3. **Construct Path**: `working/<project-name>/reviews/<review-target>-review.md`
+
 1. **Determine verdict:**
    - **APPROVE** - No critical/high issues, code is ready to merge
    - **NEEDS WORK** - Has issues that must be addressed before merge

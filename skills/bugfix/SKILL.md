@@ -67,6 +67,19 @@ flowchart TD
 | 7 | Testing & Verification | 10-15 min | Verify fix, run test suite, check for regressions |
 | 8 | Documentation | 10 min | Document root cause and resolution |
 
+## Path Logic (Artifacts)
+
+All artifacts produced during the bugfix process MUST be saved to the following location:
+
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Base Path**: `working/<project-name>/bugfix/<ticket-id>/`
+
+**Artifact Paths:**
+- Context: `<Base Path>/context.md`
+- Diagnostic Logs: `<Base Path>/diagnostic-logs.md`
+- Diagnosis Report: `<Base Path>/diagnosis-report.md`
+- Resolution: `<Base Path>/resolution.md`
+
 See `references/bugfix-phases.md` for detailed phase instructions.
 
 ## Key Principles

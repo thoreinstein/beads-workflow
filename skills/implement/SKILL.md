@@ -230,6 +230,11 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 
 At completion, document the implementation:
 
+**Path Logic:**
+1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
+2. **Construct Path**: `working/<project-name>/summaries/<ticket-id>-summary.md`
+3. **Save**: Save the summary to this path using `write_file`.
+
 ```markdown
 ## Implementation Summary
 
