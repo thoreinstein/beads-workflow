@@ -1,3 +1,11 @@
+# Release v1.5.0
+
+## Summary
+This release standardizes artifact storage paths across all core skills, providing a consistent and predictable directory structure for project-specific working files (reports, summaries, logs).
+
+## New Features
+- **Standardized Artifact Paths**: Introduced consistent path logic for `bugfix`, `code-review`, `implement`, and `refactor` skills.
+
 # Release v1.4.0
 
 ## Summary

@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.0 (2026-02-09)
+
+### Features
+- 14b401a feat: standardize artifact storage paths across core skills
+
 ## v1.4.0 (2026-02-08)
 
 ### Features
