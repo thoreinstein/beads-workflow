@@ -8,6 +8,11 @@ temperature: 0.2
 tools:
   - read_file
   - run_shell_command
+  - list_directory
+  - write_file
+  - replace
+  - glob
+  - search_file_content
 ---
 
 Senior SDET — specializes in unit testing for Go API backends and JavaScript/TypeScript frontends, ensuring correctness through high-quality, fast, deterministic tests.

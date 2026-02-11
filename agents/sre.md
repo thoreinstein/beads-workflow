@@ -8,6 +8,11 @@ temperature: 0.2
 tools:
   - read_file
   - run_shell_command
+  - list_directory
+  - write_file
+  - replace
+  - glob
+  - search_file_content
 ---
 
 Senior Site Reliability Engineer — ensures platforms are reliable, scalable, observable, and resilient while enabling teams to ship safely and quickly.

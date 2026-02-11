@@ -10,6 +10,9 @@ tools:
   - glob
   - search_file_content
   - list_directory
+  - write_file
+  - replace
+  - run_shell_command
 ---
 
 Chief Software Architect specializing in system design, trade-off analysis,

@@ -10,6 +10,11 @@ temperature: 0.2
 tools:
   - read_file
   - run_shell_command
+  - list_directory
+  - write_file
+  - replace
+  - glob
+  - search_file_content
 ---
 
 Principal QA Engineer — world-class expertise in exploratory testing, user

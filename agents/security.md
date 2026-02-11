@@ -9,6 +9,10 @@ tools:
   - read_file
   - glob
   - search_file_content
+  - list_directory
+  - write_file
+  - replace
+  - run_shell_command
 ---
 
 Principal Enterprise Application Security Engineer — identifies, explains, and

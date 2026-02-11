@@ -6,6 +6,7 @@ description: Full implementation mode - end-to-end feature implementation with p
 # Implement
 
 ## Agent Delegation
+
 You MUST delegate complex architectural decisions and security-critical code implementations to the `principal-engineer` sub-agent. For system-wide dependency mapping and comprehensive feature implementation, utilize the `codebase_investigator`. For unit test creation and test strategy, delegate to the `sdet` sub-agent.
 
 ## HARD CONSTRAINTS (NON-NEGOTIABLE)
@@ -15,12 +16,12 @@ You MUST delegate complex architectural decisions and security-critical code imp
 - **TICKET TRACKING IS MANDATORY** — Update ticket status (in-progress/done) as you work.
 - **EPIC CLOSURE RULES** — Never close an epic while child tickets remain open.
 - **SMART BRANCHING** — Before creating a branch, check the current environment.
-    *   **Trunk Check**: ONLY create a new branch if the current branch is a "trunk" branch (e.g., `main`, `master`).
-    *   **Existing Branch**: If already on a non-trunk branch (e.g., a feature branch or a branch with an open PR), continue working on the current branch.
-    *   **Lineage Check**: If on a trunk branch and a new branch is needed, check the ticket's lineage:
-        *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
-        *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
-    *   **Naming Convention**: `feat/<anchor-ticket-id>-<short-desc>` or `fix/...`
+  - **Trunk Check**: ONLY create a new branch if the current branch is a "trunk" branch (e.g., `main`, `master`).
+  - **Existing Branch**: If already on a non-trunk branch (e.g., a feature branch or a branch with an open PR), continue working on the current branch.
+  - **Lineage Check**: If on a trunk branch and a new branch is needed, check the ticket's lineage:
+    - If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
+    - If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
+  - **Naming Convention**: `feat/<anchor-ticket-id>-<short-desc>` or `fix/...`
 - **MERGE BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the Pull Request containing its changes has been successfully merged into the trunk branch. This ensures that any review feedback is addressed while the ticket is still 'in-progress'.
 - **VERIFY BEFORE COMMIT** — No code shall be committed until all verification steps (tests, lint, build, etc.) have passed successfully. If any check fails, you MUST resolve the issues and re-verify before attempting to commit.
 - **NO --NO-VERIFY** — Never, under any circumstances, use the `--no-verify` flag with git commit. Pre-commit hooks must always run and pass. If they fail, fix the code. No exceptions, even if explicitly requested.
@@ -28,6 +29,7 @@ You MUST delegate complex architectural decisions and security-critical code imp
 ### Scope Creep Self-Check
 
 Before writing ANY code, ask:
+
 1. Is this in the implementation plan? → NO = don't implement
 2. Is this ticket in scope for this phase? → NO = don't implement
 3. Am I adding something "nice to have"? → YES = note as follow-up, don't implement
@@ -56,12 +58,12 @@ bd show <epic-id> --json  # All children must be status:done (merged)
 
 ### Status Update Rules
 
-| Event | Action |
-| ----- | ------ |
-| Starting implementation | Mark parent ticket in-progress |
-| Starting a child ticket in a phase | Mark child in-progress |
-| Pull Request Merged | Mark affected tickets done |
-| ALL children done → close epic | Mark epic done |
+| Event                              | Action                         |
+| ---------------------------------- | ------------------------------ |
+| Starting implementation            | Mark parent ticket in-progress |
+| Starting a child ticket in a phase | Mark child in-progress         |
+| Pull Request Merged                | Mark affected tickets done     |
+| ALL children done → close epic     | Mark epic done                 |
 
 **NEVER close an epic while children are still open.**
 
@@ -102,14 +104,14 @@ Every phase follows this exact sequence:
 
 ## Phase Overview
 
-| Phase | Name | Description |
-|-------|------|-------------|
-| 1 | Requirements Analysis | Gather context, clarify requirements, set up tracking |
-| 2 | Architecture Decision | Evaluate approaches, document decisions (if needed) |
-| 3 | Parallel Implementation | Execute implementation across work streams |
-| 4 | Integration | Integrate components, resolve conflicts |
-| 5 | Verification | Run full verification checklist |
-| 6 | Documentation & Cleanup | Update docs, clean up tracking, summarize |
+| Phase | Name                    | Description                                           |
+| ----- | ----------------------- | ----------------------------------------------------- |
+| 1     | Requirements Analysis   | Gather context, clarify requirements, set up tracking |
+| 2     | Architecture Decision   | Evaluate approaches, document decisions (if needed)   |
+| 3     | Parallel Implementation | Execute implementation across work streams            |
+| 4     | Integration             | Integrate components, resolve conflicts               |
+| 5     | Verification            | Run full verification checklist                       |
+| 6     | Documentation & Cleanup | Update docs, clean up tracking, summarize             |
 
 See `references/implement-phases.md` for detailed phase instructions.
 
@@ -231,49 +233,60 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 At completion, document the implementation:
 
 **Path Logic:**
+
 1. **Identify Project Name**: Use the `BEADS_PROJECT_NAME` env var or the current directory name.
 2. **Construct Path**: `working/<project-name>/summaries/<ticket-id>-summary.md`
-3. **Save**: Save the summary to this path using `write_file`.
+3. **Save**: Save the summary to this path using `obsidian_create_note`.
 
 ```markdown
 ## Implementation Summary
 
 ### What Was Built
+
 [Brief description of the feature]
 
 ### Tickets Completed
-| Ticket | Title | Status |
-| ------ | ----- | ------ |
-| ... | ... | done (merged) |
+
+| Ticket | Title | Status        |
+| ------ | ----- | ------------- |
+| ...    | ...   | done (merged) |
 
 ### Files Changed
+
 - `path/to/file` — [what changed]
 
 ### Architecture Decisions
+
 [Key decisions made and rationale]
 
 ### Testing
+
 - [Tests added]
 - [Coverage notes]
 
 ### Verification
+
 - [ ] All diagnostics clean
 - [ ] Tests passing
 - [ ] Build succeeds
 - [ ] PR merged into trunk branch
 
 ### Commits Made
+
 - [Commit hash] — [Phase X: description]
 
 ### Known Limitations
+
 [Any constraints or future work]
 
 ### Discovered Follow-Up Items
+
 | Item | Related Ticket | Why Not In Scope |
 | ---- | -------------- | ---------------- |
-| ... | ... | Not in plan |
+| ...  | ...            | Not in plan      |
 
 ### Next Steps
+
 [Follow-up tasks if any]
 ```
 

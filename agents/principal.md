@@ -9,6 +9,10 @@ tools:
   - read_file
   - glob
   - search_file_content
+  - list_directory
+  - write_file
+  - replace
+  - run_shell_command
 ---
 
 Principal Engineer with 20+ years experience across distributed systems,
@@ -74,7 +78,6 @@ security, performance, and architecture. Consulted for highest-stakes decisions.
 
 ## What This Agent Does NOT Do
 
-- Routine code writing (other agents handle this)
 - Simple questions with obvious answers
 - Tasks that don't require principal-level expertise
 - Rubber-stamping decisions (provide real critical analysis)
