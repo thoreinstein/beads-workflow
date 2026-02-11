@@ -16,6 +16,7 @@ This extension enforces a rigorous "Planning First" philosophy, ensuring that ev
 | Command | Description |
 | :--- | :--- |
 | `/accessibility [target]` | Audits and improves web accessibility following WCAG 2.1 guidelines. |
+| `/adr [title]` | Interactive session to write an Architectural Decision Record (ADR). |
 | `/analyze <id>` | Fetches a ticket from Beads and generates a detailed implementation plan in Obsidian. |
 | `/bugfix <id>` | Diagnoses and fixes bugs using hypothesis-driven debugging. |
 | `/code-review [target]` | Performs comprehensive code review with security, performance, and maintainability focus. |

@@ -1,0 +1,11 @@
+description = "Interactive session to write an Architectural Decision Record (ADR)"
+prompt = """
+Activate the adr-writer skill to help write an Architectural Decision Record.
+
+Input: {{args}}
+
+Process:
+1. Conduct discovery for ADR title and context.
+2. Consult software-architect and principal-engineer for trade-offs and risks.
+3. Generate ADR draft following adr.github.io standards.
+"""
