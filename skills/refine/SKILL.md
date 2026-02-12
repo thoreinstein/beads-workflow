@@ -46,3 +46,10 @@ Determine if the story is small enough for one session (1-2 hours). If not, reco
 ### Phase 4: Execution
 Create tasks or confirm "Ready for Dev".
 `bd create --parent <story-id> --description "<desc + AC>" "<title>"`
+
+## Constraints
+
+- **INTERACTIVE MODE ONLY** — STOP after each phase and wait for the user to respond.
+- **NO SOLUTIONING** — Describe WHAT, never HOW.
+- **OBSIDIAN REFINEMENT**: All refinement artifacts and notes MUST be saved to Obsidian using `obsidian_create_note`.
+- **LOCAL FILESYSTEM RESTRICTION**: Do not use local filesystem write tools (`write_file`, etc.) for documentation or refinement notes.

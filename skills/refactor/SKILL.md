@@ -95,6 +95,8 @@ The analysis should include:
 - **Risk assessment required**: Every suggestion must be rated Low/Medium/High
 - **Order matters**: Recommend sequence based on risk and dependencies
 - **Test awareness**: Note test coverage and impact for each suggestion
+- **OBSIDIAN ANALYSIS**: Refactor analysis documents MUST be saved to Obsidian using `obsidian_create_note`.
+- **LOCAL FILESYSTEM RESTRICTION**: Do not use local filesystem write tools (`write_file`, etc.) for documentation or analysis reports.
 
 ## Example
 

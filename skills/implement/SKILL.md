@@ -22,7 +22,9 @@ You MUST delegate complex architectural decisions and security-critical code imp
     - If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
     - If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
   - **Naming Convention**: `feat/<anchor-ticket-id>-<short-desc>` or `fix/...`
-- **MERGE BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the Pull Request containing its changes has been successfully merged into the trunk branch. This ensures that any review feedback is addressed while the ticket is still 'in-progress'.
+- **MERGE IS USER-ONLY** — A ticket status can only be changed to 'done' AFTER the user informs the agent that the Pull Request has been merged into the trunk branch. The agent MUST NEVER merge their own PRs.
+- **PR CREATION** — ONLY open a Pull Request if explicitly requested by the user.
+- **COMPOUND BEFORE CLOSE** — The `/compound` skill MUST be run for every ticket after merge and before marking the ticket as 'done' in Beads.
 - **VERIFY BEFORE COMMIT** — No code shall be committed until all verification steps (tests, lint, build, etc.) have passed successfully. If any check fails, you MUST resolve the issues and re-verify before attempting to commit.
 - **NO --NO-VERIFY** — Never, under any circumstances, use the `--no-verify` flag with git commit. Pre-commit hooks must always run and pass. If they fail, fix the code. No exceptions, even if explicitly requested.
 
@@ -88,7 +90,9 @@ Every phase follows this exact sequence:
 │   4. COMMIT   → Create atomic commit for phase              │
 │                 Include ticket IDs in commit message        │
 │                                                             │
-│   5. UPDATE   → Mark tickets done ONLY after merge          │
+│   5. UPDATE   → Mark tickets done ONLY after:                │
+│                 1. User confirms PR is merged               │
+│                 2. Run `/compound` skill                    │
 │                 Keep in_progress while PR is pending        │
 │                                                             │
 │   6. PROCEED  → Move to next phase                          │
@@ -96,8 +100,8 @@ Every phase follows this exact sequence:
 │   ⚠️  DO NOT PROCEED UNTIL COMMIT SUCCEEDS AND TICKETS      │
 │       ARE UPDATED (IF MERGED)                               │
 │                                                             │
-│   ⚠️  NEVER mark a ticket done until its changes are        │
-│       merged into the trunk branch.                         │
+│   ⚠️  NEVER mark a ticket done until user confirms merge    │
+│       and `/compound` is completed.                         │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -111,7 +115,7 @@ Every phase follows this exact sequence:
 | 3     | Parallel Implementation | Execute implementation across work streams            |
 | 4     | Integration             | Integrate components, resolve conflicts               |
 | 5     | Verification            | Run full verification checklist                       |
-| 6     | Documentation & Cleanup | Update docs, clean up tracking, summarize             |
+| 6     | Compound & Closure      | Run `/compound`, update docs, clean up tracking      |
 
 See `references/implement-phases.md` for detailed phase instructions.
 
@@ -134,20 +138,21 @@ Phase 3: Implementation
   - [ ] [Specific implementation tasks from plan]
   - [ ] Write tests
   - [ ] Commit implementation
-  - [ ] Update ticket status → in-progress (keep until PR merge)
+  - [ ] Update ticket status → in-progress
 
 Phase 4: Integration
   - [ ] Integrate components
   - [ ] Commit integration
+  - [ ] Wait for user request to open PR
 
 Phase 5: Verification
   - [ ] Run verification checklist
   - [ ] Commit fixes
 
-Phase 6: Documentation & Cleanup
-  - [ ] Update documentation
+Phase 6: Compound & Closure
+  - [ ] User confirms PR merged
+  - [ ] Run `/compound` skill
   - [ ] Create implementation summary
-  - [ ] Document follow-up items
   - [ ] Verify all tickets closed
   - [ ] Final commit
 ```
@@ -176,13 +181,12 @@ Phase 6: Documentation & Cleanup
 ├─────────────────────────────────────────────────────────────┤
 │  [ ] ALL child tickets are status: done (merged)            │
 │  [ ] All phases in the plan are complete                    │
-│  [ ] All commits are pushed and PRs merged                  │
+│  [ ] `/compound` run for all child tickets                  │
 │  [ ] No uncommitted changes remain                          │
 │  [ ] Implementation summary documented                      │
 │  [ ] Final commit completed (if needed)                     │
 │  [ ] Follow-up items captured                               │
 │                                                             │
-│  ⚠️  MERGE ALL PRs BEFORE CLOSING EPIC                      │
 │  ⚠️  DO NOT CLOSE EPIC IF ANY CHILD IS STILL OPEN           │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -211,8 +215,8 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 2. **Work**: Execute ONLY work defined in the plan.
 3. **Verify**: Run tests, lints, and builds. No code shall be committed until all verification steps pass.
 4. **Commit**: Create atomic commit for the phase. Git hooks must always run; never use `--no-verify`.
-5. **Update Tickets**: Mark completed tickets as `done` ONLY after successful merge. Keep tickets `in-progress` if a PR is pending or review is required.
-6. **Proceed**: Move to the next phase only after commit and ticket updates (or merge confirmation).
+5. **Update Tickets**: Mark completed tickets as `done` ONLY after user confirms merge and `/compound` is run.
+6. **Proceed**: Move to the next phase only after commit and status verification.
 
 ---
 
@@ -227,6 +231,8 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 - **Clean completion**: No uncommitted changes, all tickets closed
 - **No premature closure**: Epic stays open until all children are merged and done
 - **Merge is Done**: A ticket is only 'done' when its code is in the trunk branch.
+- **OBSIDIAN SUMMARIES**: Implementation summaries MUST be saved to Obsidian using `obsidian_create_note`.
+- **LOCAL FILESYSTEM RESTRICTION**: Do not use local filesystem write tools (`write_file`, etc.) for documentation or summaries.
 
 ## Implementation Output
 

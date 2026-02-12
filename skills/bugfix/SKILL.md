@@ -101,12 +101,16 @@ See `references/bugfix-phases.md` for detailed phase instructions.
         *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
         *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
     *   **Naming Convention**: `fix/<anchor-ticket-id>-<short-desc>`
-- **MERGE BEFORE CLOSE** — A ticket status can only be changed to 'done' AFTER the Pull Request containing its changes has been successfully merged into the trunk branch. This ensures that any review feedback is addressed while the ticket is still 'in-progress'.
+- **MERGE IS USER-ONLY** — A ticket status can only be changed to 'done' AFTER the user informs the agent that the Pull Request has been merged into the trunk branch. The agent MUST NEVER merge their own PRs.
+- **PR CREATION** — ONLY open a Pull Request if explicitly requested by the user.
+- **COMPOUND BEFORE CLOSE** — The `/compound` skill MUST be run for every bugfix after merge and before marking the ticket as 'done' in Beads.
 - **STOP at Phase 5** and wait for user confirmation before implementing any fix
 - **Remove ALL diagnostic instrumentation** after fix is verified
 - **Generate 5-7 hypotheses** before distilling to most likely causes
 - **Document root cause** and prevention strategy in resolution document
 - **Never guess** - if diagnostic data is insufficient, add more instrumentation
+- **OBSIDIAN ARTIFACTS**: All artifacts produced during the bugfix process MUST be saved to Obsidian using `obsidian_create_note`.
+- **LOCAL FILESYSTEM RESTRICTION**: Do not use local filesystem write tools (`write_file`, etc.) for documentation or artifacts.
 
 ## Templates
 
