@@ -62,10 +62,12 @@ After storing artifacts in Obsidian, synthesize the new knowledge to update the 
 
 1.  **Read** the current `GEMINI.md` (create it if it doesn't exist).
 2.  **Append** or integrate new patterns, conventions, or "traps" identified in this session.
-3.  **Ensure** the information is structured for maximum utility in future prompts.
+3.  **Update Locally**: Use local filesystem tools (`write_file`, `replace`) to update `GEMINI.md`. This is the sole exception to the Obsidian-only guardrail.
+4.  **Ensure** the information is structured for maximum utility in future prompts.
 
 ## Constraints
 
 - **GEMINI.md UPDATES ONLY** — No changes to source code. Analysis and context documentation only.
+- **GEMINI.md EXCEPTION** — The `GEMINI.md` file in the project root is the ONLY non-source-code file that may be updated locally. All other planning and documentation MUST be in Obsidian.
 - **TRUTH ONLY** — Document actual occurrences and decisions.
-- **USE OBSIDIAN** — Knowledge artifacts must be stored in the Obsidian vault.
+- **USE OBSIDIAN** — Knowledge artifacts (patterns, traps, decisions) must be stored in the Obsidian vault.
