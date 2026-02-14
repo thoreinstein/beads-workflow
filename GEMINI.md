@@ -27,7 +27,7 @@
 
 The standard engineering workflow follows a strict **Research -> Strategy -> Execution -> Retrospective** lifecycle.
 
-### 1. Research & Refinement (`/epic` or `/story`)
+### 1. Research & Refinement (`/refine`)
 
 - **Action**: Use `bd ready` to find unblocked work.
 - **Goal**: Refine the Epic or Story. Ensure Acceptance Criteria (AC) are testable and the problem statement is clear.

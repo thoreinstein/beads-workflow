@@ -1,7 +1,0 @@
-description = "Refine a story into technical tasks through requirements analysis"
-prompt = """
-Activate the refine skill to facilitate a conversation and refine story {{args}}.
-
-Target Story: {{args}}
-Mode: Story Refinement
-"""

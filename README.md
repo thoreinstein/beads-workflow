@@ -22,12 +22,11 @@ This extension enforces a rigorous "Planning First" philosophy, ensuring that ev
 | `/code-review [target]` | Performs comprehensive code review with security, performance, and maintainability focus. |
 | `/commit [focus]` | Analyzes changes and creates atomic commits with conventional messages. |
 | `/compound <id>` | Transmutes implementation lessons into permanent knowledge artifacts. |
-| `/epic <id>` | Refines a large feature into high-level stories through PM analysis. |
 | `/implement <id>` | Executes a plan from Obsidian, following phased gates and atomic commits. |
 | `/rams [file]` | Runs an expert accessibility and visual design review. |
 | `/refactor [target]` | Analyzes code and suggests refactoring opportunities with blast radius assessment. |
+| `/refine <id>` | Refines an epic or story through cross-functional analysis and requirements gathering. |
 | `/release` | Authors release notes, changelogs, and creates signed release tags. |
-| `/story <id>` | Refines a story into technical tasks. |
 
 ## Specialized Agents
 
@@ -37,7 +36,7 @@ The extension includes a library of specialized "Specialist" agents that handle 
 *   **Software Architect**: Owns the `/analyze` output and architectural validation.
 *   **Security Engineer**: Performs OWASP-aligned security reviews.
 *   **SDET / QA Engineer**: Handles unit testing and exploratory browser testing.
-*   **Agile Delivery Lead**: Owns the `/epic` and `/story` refinement process.
+*   **Agile Delivery Lead**: Owns the `/refine` process.
 *   **SRE Engineer**: Manages reliability, SLOs, and infrastructure.
 
 ## Prerequisites
@@ -58,7 +57,7 @@ gemini extensions install https://github.com/thoreinstein/beads-workflow.git
 
 ## Workflow Lifecycle
 
-1.  **Refine**: Use `/epic` and `/story` to establish the scope in Beads.
+1.  **Refine**: Use `/refine` to establish the scope in Beads.
 2.  **Plan**: Use `/analyze` to create the architectural record in Obsidian.
 3.  **Execute**: Use `/implement` to build the feature, following the atomic commit cycle.
 4.  **Audit**: Use `/rams` for design quality and `/code-review` for logic gates.

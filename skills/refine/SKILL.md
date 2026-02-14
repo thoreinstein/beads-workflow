@@ -8,6 +8,12 @@ description: Refine epics and stories through cross-functional analysis and requ
 ## Agent Delegation
 You MUST delegate the requirements analysis, backlog refinement, and story breakdown tasks to the `agile-delivery-lead` sub-agent. Use their expertise to ensure stories are well-structured and provide clear business value.
 
+## Initial Step: Identification
+1. **Fetch Ticket Details**: Run `bd show <ticket-id>` to retrieve the ticket's type (Epic or Story) and current status.
+2. **Select Workflow**:
+   - If type is **Epic**, follow the **Epic Refinement Workflow**.
+   - If type is **Story**, follow the **Story Refinement Workflow**.
+
 ## HARD CONSTRAINTS (NON-NEGOTIABLE)
 
 - **INTERACTIVE MODE ONLY** — STOP after each phase and wait for the user to respond.

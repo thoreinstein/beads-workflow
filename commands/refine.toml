@@ -1,0 +1,6 @@
+description = "Refine an epic or story through cross-functional analysis and requirements gathering"
+prompt = """
+Activate the refine skill to facilitate a conversation and refine the target ticket {{args}}.
+
+Target Ticket: {{args}}
+"""
