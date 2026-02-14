@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.6.0 (2026-02-14)
+
+### Features
+- f16e89a feat(commands): consolidate refinement commands and rename review command
+- 01fd82f feat(compound): add multi-stage retrospective and clarify local write exception
+- 8aa75e4 feat(workflow): enforce obsidian-only artifacts and PR/closure guardrails
+- fd3d028 feat: enhance compound retrospective with multi-stage review
+- 24df4e8 feat: add adr-writer skill and /adr command
+- 795aa88 feat: allow agents to write and edit files
+
 ## v1.5.0 (2026-02-09)
 
 ### Features

@@ -1,3 +1,18 @@
+# Release v1.6.0
+
+## Summary
+This release significantly enhances the refinement and knowledge management workflows. It consolidates the `/epic` and `/story` commands into a single `/refine` command, introduces the `/adr` command for Architectural Decision Records, and strictly enforces that all planning and analysis artifacts be stored in Obsidian. It also improves the `/compound` skill with a multi-stage retrospective to better capture lessons learned.
+
+## New Features
+- **Consolidated Refinement**: Replaced `/epic` and `/story` with a unified `/refine` command.
+- **Architectural Decision Records**: Added the `/adr` command and `adr-writer` skill to capture key technical decisions.
+- **Obsidian-Only Artifacts**: Enforced a strict guardrail requiring all planning and analysis reports to be stored in the Obsidian vault.
+- **Enhanced Retrospectives**: Improved the `/compound` skill with a multi-stage review process (Requirements vs Strategy vs Execution).
+- **Command Rename**: Renamed `/code-review` to `/review` to avoid conflicts with other extensions.
+
+## Operational Notes
+- **Agent File Operations**: Agents are now permitted to write and edit files as part of their standard operations, adhering to project-specific guardrails.
+
 # Release v1.5.0
 
 ## Summary

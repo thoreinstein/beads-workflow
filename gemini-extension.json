@@ -1,6 +1,6 @@
 {
   "name": "beads-workflow",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A high-stakes engineering workflow powered by Beads (issue tracking) and Obsidian (planning)."
 }
 
