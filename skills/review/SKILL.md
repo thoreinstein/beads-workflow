@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: review
 description: Comprehensive code review with security, performance, and maintainability focus. Produces structured review with APPROVE, NEEDS WORK, or BLOCK verdict.
 ---
 

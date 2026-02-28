@@ -28,7 +28,7 @@ Identify:
 **Interactive Step:**
 Ask the user for their perspective on what should be remembered and what new patterns were established.
 
-### Phase 2: Knowledge Crystalization
+### Phase 2: Knowledge Crystallization
 
 Formulate **Knowledge Artifacts**.
 
