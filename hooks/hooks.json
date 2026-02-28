@@ -1,0 +1,21 @@
+[
+  {
+    "hookEvent": "BeforeTool",
+    "toolNameMatcher": "write_file|replace",
+    "command": "hooks/enforce-obsidian-writes.sh",
+    "timeout": 5000,
+    "name": "obsidian-guardrail"
+  },
+  {
+    "hookEvent": "SessionStart",
+    "command": "hooks/session-context.sh",
+    "timeout": 5000,
+    "name": "session-context"
+  },
+  {
+    "hookEvent": "SessionEnd",
+    "command": "hooks/compound-reminder.sh",
+    "timeout": 5000,
+    "name": "compound-reminder"
+  }
+]

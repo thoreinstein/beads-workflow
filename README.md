@@ -15,15 +15,15 @@ This extension enforces a rigorous "Planning First" philosophy, ensuring that ev
 
 | Command | Description |
 | :--- | :--- |
-| `/accessibility [target]` | Audits and improves web accessibility following WCAG 2.1 guidelines. |
+| `/accessibility [target]` | Audits and improves web accessibility following WCAG 2.1 guidelines (full WCAG audit with remediation code). |
 | `/adr [title]` | Interactive session to write an Architectural Decision Record (ADR). |
 | `/analyze <id>` | Fetches a ticket from Beads and generates a detailed implementation plan in Obsidian. |
 | `/bugfix <id>` | Diagnoses and fixes bugs using hypothesis-driven debugging. |
-| `/code-review [target]` | Performs comprehensive code review with security, performance, and maintainability focus. |
+| `/review [target]` | Performs comprehensive code review with security, performance, and maintainability focus. |
 | `/commit [focus]` | Analyzes changes and creates atomic commits with conventional messages. |
 | `/compound <id>` | Transmutes implementation lessons into permanent knowledge artifacts. |
 | `/implement <id>` | Executes a plan from Obsidian, following phased gates and atomic commits. |
-| `/rams [file]` | Runs an expert accessibility and visual design review. |
+| `/rams [file]` | Runs an expert accessibility and visual design review (quick design + a11y review with severity scoring). |
 | `/refactor [target]` | Analyzes code and suggests refactoring opportunities with blast radius assessment. |
 | `/refine <id>` | Refines an epic or story through cross-functional analysis and requirements gathering. |
 | `/release` | Authors release notes, changelogs, and creates signed release tags. |
@@ -60,7 +60,7 @@ gemini extensions install https://github.com/thoreinstein/beads-workflow.git
 1.  **Refine**: Use `/refine` to establish the scope in Beads.
 2.  **Plan**: Use `/analyze` to create the architectural record in Obsidian.
 3.  **Execute**: Use `/implement` to build the feature, following the atomic commit cycle.
-4.  **Audit**: Use `/rams` for design quality and `/code-review` for logic gates.
+4.  **Audit**: Use `/rams` for design quality and `/review` for logic gates.
 5.  **Compound**: Use `/compound` to ensure the team learns from the implementation.
 6.  **Release**: Use `/release` to prepare the artifacts for production.
 
@@ -69,7 +69,19 @@ gemini extensions install https://github.com/thoreinstein/beads-workflow.git
 The extension uses the following environment variables:
 
 *   `OBSIDIAN_VAULT_PATH`: (Required) The absolute path to your Obsidian vault.
-*   `BEADS_PLAN_DIR`: (Optional) The directory within your Obsidian vault where plans are stored. Defaults to `working/plans`.
+*   `BEADS_PLAN_DIR`: (Optional) The base directory within your Obsidian vault for project artifacts. Defaults to `working`. Plans are stored at `<BEADS_PLAN_DIR>/<project-name>/plans/`.
 *   `BEADS_PROJECT_NAME`: (Optional) The project name used for Obsidian vault paths. Defaults to the current directory name.
 
 Ensure these are set in your shell profile or provided to the Gemini CLI.
+
+## Hooks
+
+The extension includes automated guardrail hooks that enforce workflow discipline:
+
+| Hook | Event | Purpose |
+| :--- | :--- | :--- |
+| `obsidian-guardrail` | BeforeTool | Blocks local writes to `.md` files (except `GEMINI.md`). Enforces the rule that planning and documentation artifacts must be stored in Obsidian. |
+| `session-context` | SessionStart | Provides workflow context at session start and reminds you to sync with Beads via `bd ready` or `bd prime`. |
+| `compound-reminder` | SessionEnd | Checks if tickets were marked done without running `/compound` and reminds you to capture lessons learned. |
+
+Hook scripts are located in the `hooks/` directory and configured via `hooks/hooks.json`.

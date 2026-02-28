@@ -54,6 +54,7 @@ The standard engineering workflow follows a strict **Research -> Strategy -> Exe
 - **Action**: Create Pull Request.
 - **Mandate**: Tickets remain `in-progress` until the PR is merged into the trunk branch.
 - **Output**: Once merged, mark tickets as `done` and generate an **Implementation Summary** in the Obsidian `summaries/` directory.
+- **Quality Gates**: Use `/rams` for quick design-quality gates during development. Use `/accessibility` for thorough WCAG audits before release.
 
 ### 5. Compounding Knowledge (`/compound`)
 
