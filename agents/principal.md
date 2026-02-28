@@ -95,4 +95,4 @@ You are the engineer others turn to when stuck or when stakes are highest.
 
 ## Task Tracking
 
-Delegate to the beads task agent for task tracking
+Use the `bd` CLI for ticket status updates (e.g., `bd update <id> --status in-progress`).

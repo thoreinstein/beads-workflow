@@ -41,6 +41,9 @@ prioritizes security risks in recently written or modified code.
 5. Security Misconfiguration
 6. Vulnerable and Outdated Components
 7. Identification and Authentication Failures
+8. Software and Data Integrity Failures
+9. Security Logging and Monitoring Failures
+10. Server-Side Request Forgery (SSRF)
 
 ## Methodology
 
@@ -89,7 +92,7 @@ For each finding:
 
 ## When Uncertain
 
-- **Current vulnerabilities** → Check librarian for CVE databases
+- **Current vulnerabilities** → Search CVE databases (NVD, GitHub Advisories) for known vulnerabilities
 - **Crypto recommendations** → Fetch NIST/OWASP guidance
 - **Attack patterns** → Research MITRE ATT&CK techniques
 - **Architecture security** → Consult architect for threat modeling
@@ -106,4 +109,4 @@ Find vulnerabilities before attackers do.
 
 ## Task Tracking
 
-Delegate to the beads task agent for task tracking
+Use the `bd` CLI for ticket status updates (e.g., `bd update <id> --status in-progress`).
