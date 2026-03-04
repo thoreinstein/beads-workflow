@@ -1,3 +1,16 @@
+# Release v1.7.0
+
+## Summary
+This release introduces the `plan-review` skill for cross-platform plan refinement and standardizes task tracking and research methodologies across the agent fleet. It also enhances workflow documentation with additional guardrail hooks and renames the `code-review` skill to `review` for better consistency.
+
+## New Features
+- **Plan Review Skill**: Added the `/plan-review` command to refine implementation plans across multiple sessions.
+- **Methodology Standardization**: Standardized agent research and task tracking methodologies to ensure consistency.
+- **Skill Refinement**: Renamed `code-review` to `review` and resolved minor typos in the `compound` skill.
+
+## Operational Notes
+- **Workflow Guardrails**: Enhanced workflow documentation and defined new guardrail hooks to prevent process errors.
+
 # Release v1.6.0
 
 ## Summary

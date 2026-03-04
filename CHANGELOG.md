@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.7.0 (2026-03-04)
+
+### Features
+- 7b902fc feat(skills): add plan-review skill for cross-platform plan refinement
+- 9840b9c docs: enhance workflow documentation and define guardrail hooks
+- 4e80cf0 feat(skills): rename code-review to review and fix compound typo
+- d693c4b refactor(agents): standardize task tracking and research methodologies
+
 ## v1.6.0 (2026-02-14)
 
 ### Features
