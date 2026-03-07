@@ -1,3 +1,12 @@
+# Release v1.7.1
+
+## Summary
+This patch release refactors the extension's hook configuration to use a structured, event-based hierarchy and introduces `${extensionPath}` resolution for reliable script execution across environments.
+
+## Refactorings
+- **Structured Hooks**: Migrated `hooks.json` to a more scalable schema organized by lifecycle events (`BeforeTool`, `SessionStart`, `SessionEnd`).
+- **Dynamic Path Resolution**: Implemented `${extensionPath}` for hook commands to ensure guardrail scripts are correctly resolved regardless of the installation context.
+
 # Release v1.7.0
 
 ## Summary

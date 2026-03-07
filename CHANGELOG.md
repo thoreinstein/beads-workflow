@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.7.1 (2026-03-07)
+
+### Refactorings
+- 8d4a13e refactor(hooks): migrate to structured configuration and extensionPath resolution
+
 ## v1.7.0 (2026-03-04)
 
 ### Features
