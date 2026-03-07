@@ -1,21 +1,41 @@
-[
-  {
-    "hookEvent": "BeforeTool",
-    "toolNameMatcher": "write_file|replace",
-    "command": "hooks/enforce-obsidian-writes.sh",
-    "timeout": 5000,
-    "name": "obsidian-guardrail"
-  },
-  {
-    "hookEvent": "SessionStart",
-    "command": "hooks/session-context.sh",
-    "timeout": 5000,
-    "name": "session-context"
-  },
-  {
-    "hookEvent": "SessionEnd",
-    "command": "hooks/compound-reminder.sh",
-    "timeout": 5000,
-    "name": "compound-reminder"
+{
+  "hooks": {
+    "BeforeTool": [
+      {
+        "matcher": "write_file|replace",
+        "hooks": [
+          {
+            "name": "obsidian-guardrail",
+            "type": "command",
+            "command": "${extensionPath}/hooks/enforce-obsidian-writes.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "name": "session-context",
+            "type": "command",
+            "command": "${extensionPath}/hooks/session-context.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "name": "compound-reminder",
+            "type": "command",
+            "command": "${extensionPath}/hooks/compound-reminder.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ]
   }
-]
+}
