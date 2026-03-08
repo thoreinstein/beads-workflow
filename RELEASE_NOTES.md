@@ -1,3 +1,13 @@
+# Release v1.7.2
+
+## Summary
+This patch release refines the ticket tracking workflow by migrating to the dedicated `bd close` command and the "closed" status across all core documentation and skill-based workflows.
+
+## Documentation Refactorings
+- **Workflow Refinement**: Migrated from the legacy `bd update --status done` command to the specialized `bd close` command for cleaner task completion.
+- **Status Consistency**: Replaced all references to 'done' status with 'closed' terminology to align with the latest Beads CLI patterns.
+- **Project Mandates**: Updated `GEMINI.md` and both `bugfix` and `implement` skills to reflect the new closure requirements.
+
 # Release v1.7.1
 
 ## Summary

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.7.2 (2026-03-08)
+
+### Documentation
+- ef39ec5 docs(skills): migrate ticket completion to bd close and closed status
+- ed76d1d docs: update core workflow to use bd close
+
 ## v1.7.1 (2026-03-07)
 
 ### Refactorings
