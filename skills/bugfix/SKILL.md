@@ -101,9 +101,9 @@ See `references/bugfix-phases.md` for detailed phase instructions.
         *   If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
         *   If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
     *   **Naming Convention**: `fix/<anchor-ticket-id>-<short-desc>`
-- **MERGE IS USER-ONLY** — A ticket status can only be changed to 'done' AFTER the user informs the agent that the Pull Request has been merged into the trunk branch. The agent MUST NEVER merge their own PRs.
+- **MERGE IS USER-ONLY** — A ticket status can only be changed to 'closed' AFTER the user informs the agent that the Pull Request has been merged into the trunk branch. The agent MUST NEVER merge their own PRs.
 - **PR CREATION** — ONLY open a Pull Request if explicitly requested by the user.
-- **COMPOUND BEFORE CLOSE** — The `/compound` skill MUST be run for every bugfix after merge and before marking the ticket as 'done' in Beads.
+- **COMPOUND BEFORE CLOSE** — The `/compound` skill MUST be run for every bugfix after merge and before marking the ticket as 'closed' in Beads.
 - **STOP at Phase 5** and wait for user confirmation before implementing any fix
 - **Remove ALL diagnostic instrumentation** after fix is verified
 - **Generate 5-7 hypotheses** before distilling to most likely causes

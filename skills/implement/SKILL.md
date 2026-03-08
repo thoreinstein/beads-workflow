@@ -13,7 +13,7 @@ You MUST delegate complex architectural decisions and security-critical code imp
 
 - **SCOPE IS LOCKED** — Only implement what is in the plan from `/analyze`. Nothing more.
 - **NO SCOPE CREEP** — Do not implement work from other tickets, even if it seems related or helpful.
-- **TICKET TRACKING IS MANDATORY** — Update ticket status (in-progress/done) as you work.
+- **TICKET TRACKING IS MANDATORY** — Update ticket status (in-progress/closed) as you work.
 - **EPIC CLOSURE RULES** — Never close an epic while child tickets remain open.
 - **SMART BRANCHING** — Before creating a branch, check the current environment.
   - **Trunk Check**: ONLY create a new branch if the current branch is a "trunk" branch (e.g., `main`, `master`).
@@ -22,9 +22,9 @@ You MUST delegate complex architectural decisions and security-critical code imp
     - If this is a sub-task (child of a Story/Feature), check if a branch for the **Parent Ticket** already exists. If so, switch to it. If not, create the branch using the **Parent Ticket's ID**.
     - If this is a Feature/Story (child of Epic) or Standalone, create/use a branch for **This Ticket**.
   - **Naming Convention**: `feat/<anchor-ticket-id>-<short-desc>` or `fix/...`
-- **MERGE IS USER-ONLY** — A ticket status can only be changed to 'done' AFTER the user informs the agent that the Pull Request has been merged into the trunk branch. The agent MUST NEVER merge their own PRs.
+- **MERGE IS USER-ONLY** — A ticket status can only be changed to 'closed' AFTER the user informs the agent that the Pull Request has been merged into the trunk branch. The agent MUST NEVER merge their own PRs.
 - **PR CREATION** — ONLY open a Pull Request if explicitly requested by the user.
-- **COMPOUND BEFORE CLOSE** — The `/compound` skill MUST be run for every ticket after merge and before marking the ticket as 'done' in Beads.
+- **COMPOUND BEFORE CLOSE** — The `/compound` skill MUST be run for every ticket after merge and before marking the ticket as 'closed' in Beads.
 - **VERIFY BEFORE COMMIT** — No code shall be committed until all verification steps (tests, lint, build, etc.) have passed successfully. If any check fails, you MUST resolve the issues and re-verify before attempting to commit.
 - **NO --NO-VERIFY** — Never, under any circumstances, use the `--no-verify` flag with git commit. Pre-commit hooks must always run and pass. If they fail, fix the code. No exceptions, even if explicitly requested.
 
@@ -52,10 +52,10 @@ If you discover related work, add it to "Discovered Follow-Up Items" and continu
 bd update <ticket-id> --status in-progress
 
 # Completing a ticket (ONLY AFTER PR MERGE)
-bd update <ticket-id> --status done
+bd close <ticket-id>
 
 # Verify epic children before closing
-bd show <epic-id> --json  # All children must be status:done (merged)
+bd show <epic-id> --json  # All children must be closed (merged)
 ```
 
 ### Status Update Rules
@@ -64,8 +64,8 @@ bd show <epic-id> --json  # All children must be status:done (merged)
 | ---------------------------------- | ------------------------------ |
 | Starting implementation            | Mark parent ticket in-progress |
 | Starting a child ticket in a phase | Mark child in-progress         |
-| Pull Request Merged                | Mark affected tickets done     |
-| ALL children done → close epic     | Mark epic done                 |
+| Pull Request Merged                | Close affected tickets         |
+| ALL children closed → close epic   | Close epic                     |
 
 **NEVER close an epic while children are still open.**
 
@@ -90,7 +90,7 @@ Every phase follows this exact sequence:
 │   4. COMMIT   → Create atomic commit for phase              │
 │                 Include ticket IDs in commit message        │
 │                                                             │
-│   5. UPDATE   → Mark tickets done ONLY after:                │
+│   5. UPDATE   → Mark tickets closed ONLY after:                │
 │                 1. User confirms PR is merged               │
 │                 2. Run `/compound` skill                    │
 │                 Keep in_progress while PR is pending        │
@@ -100,7 +100,7 @@ Every phase follows this exact sequence:
 │   ⚠️  DO NOT PROCEED UNTIL COMMIT SUCCEEDS AND TICKETS      │
 │       ARE UPDATED (IF MERGED)                               │
 │                                                             │
-│   ⚠️  NEVER mark a ticket done until user confirms merge    │
+│   ⚠️  NEVER mark a ticket closed until user confirms merge    │
 │       and `/compound` is completed.                         │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
@@ -179,7 +179,7 @@ Phase 6: Compound & Closure
 ┌─────────────────────────────────────────────────────────────┐
 │  EPIC COMPLETION GATE                                       │
 ├─────────────────────────────────────────────────────────────┤
-│  [ ] ALL child tickets are status: done (merged)            │
+│  [ ] ALL child tickets are status: closed (merged)          │
 │  [ ] All phases in the plan are complete                    │
 │  [ ] `/compound` run for all child tickets                  │
 │  [ ] No uncommitted changes remain                          │
@@ -215,7 +215,7 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 2. **Work**: Execute ONLY work defined in the plan.
 3. **Verify**: Run tests, lints, and builds. No code shall be committed until all verification steps pass.
 4. **Commit**: Create atomic commit for the phase. Git hooks must always run; never use `--no-verify`.
-5. **Update Tickets**: Mark completed tickets as `done` ONLY after user confirms merge and `/compound` is run.
+5. **Update Tickets**: Close completed tickets ONLY after user confirms merge and `/compound` is run.
 6. **Proceed**: Move to the next phase only after commit and status verification.
 
 ---
@@ -229,8 +229,8 @@ Branch → Plan → Work → Verify → Commit → Update Tickets → Proceed
 - **No --no-verify**: Never bypass git hooks. If hooks fail, the code is not ready to be committed.
 - **Track everything**: Update ticket status in real-time, not at the end
 - **Clean completion**: No uncommitted changes, all tickets closed
-- **No premature closure**: Epic stays open until all children are merged and done
-- **Merge is Done**: A ticket is only 'done' when its code is in the trunk branch.
+- **No premature closure**: Epic stays open until all children are merged and closed
+- **Merge is Done**: A ticket is only 'closed' when its code is in the trunk branch.
 - **OBSIDIAN SUMMARIES**: Implementation summaries MUST be saved to Obsidian using `obsidian_create_note`.
 - **LOCAL FILESYSTEM RESTRICTION**: Do not use local filesystem write tools (`write_file`, etc.) for documentation or summaries.
 
@@ -255,7 +255,7 @@ At completion, document the implementation:
 
 | Ticket | Title | Status        |
 | ------ | ----- | ------------- |
-| ...    | ...   | done (merged) |
+| ...    | ...   | closed (merged) |
 
 ### Files Changed
 
@@ -321,14 +321,14 @@ Phase 3: Implementation
     ✓ Added PreferencesService
     ✓ Committed: feat(STORY-124): add notification preferences backend
     ✓ PR Created and Merged ✓
-    ✓ Marked STORY-124 done
+    ✓ Marked STORY-124 closed
 
   STORY-125 (frontend):
     ✓ Marked STORY-125 in-progress
     ✓ Added preferences UI component
     ✓ Committed: feat(STORY-125): add notification preferences UI
     ✓ PR Created and Merged ✓
-    ✓ Marked STORY-125 done
+    ✓ Marked STORY-125 closed
 
 Phase 4: Integration
   STORY-126:
@@ -337,7 +337,7 @@ Phase 4: Integration
     ✓ Added e2e tests
     ✓ Committed: chore(STORY-126): integrate notification preferences
     ✓ PR Created and Merged ✓
-    ✓ Marked STORY-126 done
+    ✓ Marked STORY-126 closed
 
 Phase 5: Verification
   ✓ All tests pass (47/47)
@@ -347,9 +347,9 @@ Phase 5: Verification
 Phase 6: Documentation & Cleanup
   ✓ Updated API docs
   ✓ Created implementation summary
-  ✓ Verified all children done: STORY-124 ✓, STORY-125 ✓, STORY-126 ✓
+  ✓ Verified all children closed: STORY-124 ✓, STORY-125 ✓, STORY-126 ✓
   ✓ Committed: docs: notification preferences
-  ✓ Marked EPIC-123 done (after final merge)
+  ✓ Marked EPIC-123 closed (after final merge)
 
 Implementation complete!
 ```

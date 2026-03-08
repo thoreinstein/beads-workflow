@@ -356,7 +356,7 @@ If pattern or best practice identified, update architecture docs with:
 ### Step 8.2: Finalize and Close
 
 - Ensure Pull Request is merged into trunk branch
-- Mark ticket as 'done' using `bd update <id> --status done` (ONLY after merge)
+- Close ticket using `bd close <id>` (ONLY after merge)
 
 ---
 
@@ -387,4 +387,4 @@ If pattern or best practice identified, update architecture docs with:
 - [ ] Architecture docs updated (if applicable)
 - [ ] Resolution document created
 - [ ] Pull Request merged into trunk branch
-- [ ] Ticket marked 'done' (ONLY after merge)
+- [ ] Ticket marked 'closed' (ONLY after merge)

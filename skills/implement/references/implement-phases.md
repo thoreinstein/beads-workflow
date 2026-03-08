@@ -21,7 +21,7 @@ Launch parallel exploration to understand the codebase:
 Answer these questions before proceeding:
 
 - **What exactly needs to be built?** Define the deliverable clearly
-- **What are the acceptance criteria?** How will we know it's done?
+- **What are the acceptance criteria?** How will we know it's closed?
 - **What constraints exist?** Time, compatibility, performance requirements
 - **What patterns should be followed?** Existing conventions in the codebase
 
@@ -290,7 +290,7 @@ Use the template at `references/templates/implementation-summary.md` to document
 
 ### Step 6.3: Clean Up Task Tracking
 
-- Mark all tickets as 'done' using `bd update <id> --status done` (ONLY after the Pull Request is merged)
+- Close all tickets using `bd close <id>` (ONLY after the Pull Request is merged)
 - Cancel any tasks that became unnecessary
 - Archive or delete the task list
 
@@ -299,7 +299,7 @@ Use the template at `references/templates/implementation-summary.md` to document
 Confirm:
 
 - [ ] No uncommitted changes remain
-- [ ] All tickets marked 'done' AFTER successful merge
+- [ ] All tickets closed AFTER successful merge
 - [ ] Implementation summary documented
 - [ ] Code is present in the trunk branch (main/master)
 
@@ -320,4 +320,4 @@ Commit documentation updates.
 | 5. Verification | Commit | All checks pass |
 | 6. Documentation | Merge | PR merged, tickets updated |
 
-**Remember:** Each phase ends with a commit. Do not proceed to the next phase until the current phase is committed. The entire process is not complete until the PR is merged and tickets are marked 'done'.
+**Remember:** Each phase ends with a commit. Do not proceed to the next phase until the current phase is committed. The entire process is not complete until the PR is merged and tickets are marked 'closed'.
