@@ -12,10 +12,12 @@ You MUST delegate the identification of architectural truths, patterns, and long
 
 ### Phase 1: The Retrospective
 
-Analyze the work done for the ticket by conducting a multi-stage review to surface pitfalls in the workflow:
+Analyze the work done for the ticket by conducting a multi-stage review to surface pitfalls in the workflow.
 
-1.  **Requirement vs. Strategy Review:** Review the original bead description and Acceptance Criteria (AC) against the plan generated during the `analyze` phase.
-2.  **Strategy vs. Execution Review:** Review the plan from the `analyze` phase against the summary from the `implement` phase.
+**Reading artifacts:** Use `obsidian_search_notes` to find relevant plans, summaries, and knowledge notes, then `obsidian_read_note` to read them. All artifacts live in the Obsidian vault under `working/<project-name>/`.
+
+1.  **Requirement vs. Strategy Review:** Review the original bead description and Acceptance Criteria (AC) against the plan generated during the `analyze` phase (read from `plans/`).
+2.  **Strategy vs. Execution Review:** Review the plan against the summary from the `implement` phase (read from `summaries/`).
 3.  **Iteration Review:** Review any follow-on summaries from `refactors` or `bugfixes` that occurred after the initial implementation.
 4.  **Workflow Audit:** Surface any pitfalls, misalignments, or inefficiencies discovered in the `plan` -> `analyze` -> `implement` workflow.
 
