@@ -11,7 +11,7 @@
 - **COMPLETION FLOW**: A ticket is only considered complete after:
     1. The user informs the agent that the PR has been merged.
     2. The agent runs the `/compound` skill to extract lessons and update project context.
-    3. The agent marks the ticket as `done` in Beads.
+    3. The agent closes the ticket in Beads using `bd close <id>`.
 
 
 ## Knowledge Management
@@ -53,7 +53,7 @@ The standard engineering workflow follows a strict **Research -> Strategy -> Exe
 
 - **Action**: Create Pull Request.
 - **Mandate**: Tickets remain `in-progress` until the PR is merged into the trunk branch.
-- **Output**: Once merged, mark tickets as `done` and generate an **Implementation Summary** in the Obsidian `summaries/` directory.
+- **Output**: Once merged, close tickets and generate an **Implementation Summary** in the Obsidian `summaries/` directory.
 - **Quality Gates**: Use `/rams` for quick design-quality gates during development. Use `/accessibility` for thorough WCAG audits before release.
 
 ### 5. Compounding Knowledge (`/compound`)
