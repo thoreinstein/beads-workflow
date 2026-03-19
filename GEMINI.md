@@ -21,6 +21,7 @@
 - **Subdirectories**:
   - `plans/`: For implementation plans and analysis reports.
   - `summaries/`: For implementation and bugfix summaries.
+  - `refinements/`: For ticket refinement artifacts and critiques.
   - `knowledge/`: For patterns, traps, and architectural decisions.
 
 ## Workflow Overview

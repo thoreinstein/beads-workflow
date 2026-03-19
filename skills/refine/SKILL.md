@@ -57,5 +57,8 @@ Create tasks or confirm "Ready for Dev".
 
 - **INTERACTIVE MODE ONLY** — STOP after each phase and wait for the user to respond.
 - **NO SOLUTIONING** — Describe WHAT, never HOW.
-- **OBSIDIAN REFINEMENT**: All refinement artifacts and notes MUST be saved to Obsidian using `obsidian_create_note`.
-- **LOCAL FILESYSTEM RESTRICTION**: Do not use local filesystem write tools (`write_file`, etc.) for documentation or refinement notes.
+- **CHAT-BASED ANALYSIS**: The `agile-delivery-lead` sub-agent must perform all analysis and critiques exclusively in the chat. It is forbidden from writing to Obsidian.
+- **MANDATORY OBSIDIAN RECORD**: The main LLM (Gemini) MUST synthesize the final refinement results and save them to the `refinements/` directory in Obsidian before the ticket is closed.
+- **LOCAL FILESYSTEM RESTRICTION**: Never use local filesystem write tools (`write_file`, etc.) for documentation or refinement notes.
+
+
