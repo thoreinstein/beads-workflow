@@ -1,3 +1,13 @@
+# Release Notes - v1.8.0 (2026-03-19)
+
+### Summary
+This release introduces significant enhancements to the refinement workflow, specialized sub-agents, and a new 'pr-comments' skill for automated PR management.
+
+### Highlights
+- **Refinement Constraints**: Mandatory LLM-driven Obsidian records and restricted PM sub-agent behavior.
+- **New Skill**: Added 'pr-comments' skill for efficient PR handling.
+- **Specialized Agents**: Introduced a suite of pro and reviewer sub-agents across multiple languages.
+- **Reliability**: Critical fixes for project hooks (path traversal, JSON injection, latency).
 # Release v1.7.2
 
 ## Summary

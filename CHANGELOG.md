@@ -1,3 +1,11 @@
+## [1.8.0] - 2026-03-19
+ - ced3738 feat: Restrict PM agent behavior and mandate LLM-driven refinement artifacts
+ - a3fb932 Add pr-comments skill
+ - 0b06ed7 Remove commands that now conflict with skills
+ - 82395e8 feat(skills): update workflows for multi-agent delegation
+ - e893de9 feat(agents): introduce specialized pro and reviewer agents
+ - 380ba81 refactor(agents): evolve SDET to Test Strategy Architect
+ - 8cf76d6 fix(hooks): resolve path traversal, JSON injection, and latency issues
 # Changelog
 
 ## v1.7.2 (2026-03-08)
