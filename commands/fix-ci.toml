@@ -1,6 +1,0 @@
-description = "Diagnose and fix CI failures using GitHub Actions logs"
-prompt = """
-Activate the fix-ci skill to diagnose and fix the CI failure on the current branch.
-
-Target: {{args}}
-"""

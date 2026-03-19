@@ -1,6 +1,0 @@
-description = "Run accessibility and visual design review"
-prompt = """
-Activate the rams skill to perform an accessibility and visual design review.
-
-Target: {{args}}
-"""

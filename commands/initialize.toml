@@ -1,6 +1,0 @@
-description = "Generate a GEMINI.md file by scanning project structure and detecting conventions"
-prompt = """
-Activate the initialize skill to scan this project and generate a GEMINI.md context file.
-
-Target: {{args}}
-"""
