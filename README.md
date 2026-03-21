@@ -15,6 +15,7 @@ This extension enforces a rigorous "Planning First" philosophy, ensuring that ev
 
 | Command | Description |
 | :--- | :--- |
+| `/idd` | Refines fuzzy ideas into Intent-Driven Development (IDD) artifacts and Intent-driven Beads. |
 | `/accessibility [target]` | Audits and improves web accessibility following WCAG 2.1 guidelines (full WCAG audit with remediation code). |
 | `/adr [title]` | Interactive session to write an Architectural Decision Record (ADR). |
 | `/analyze <id>` | Fetches a ticket from Beads and generates a detailed implementation plan in Obsidian. |
@@ -57,8 +58,8 @@ gemini extensions install https://github.com/thoreinstein/beads-workflow.git
 
 ## Workflow Lifecycle
 
-1.  **Refine**: Use `/refine` to establish the scope in Beads.
-2.  **Plan**: Use `/analyze` to create the architectural record in Obsidian.
+1.  **IDD Refinement**: Use `/idd` to transform a fuzzy "Idea" into a "Product" (Epic) and "Intentions" (Features). This establishes the **Chain of Context**.
+2.  **Plan**: Use `/analyze` to create the architectural record in Obsidian. Every plan must include **Expectations** and **Boundaries**.
 3.  **Execute**: Use `/implement` to build the feature, following the atomic commit cycle.
 4.  **Audit**: Use `/rams` for design quality and `/review` for logic gates.
 5.  **Compound**: Use `/compound` to ensure the team learns from the implementation.

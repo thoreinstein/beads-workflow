@@ -26,18 +26,18 @@
 
 ## Workflow Overview
 
-The standard engineering workflow follows a strict **Research -> Strategy -> Execution -> Retrospective** lifecycle.
+The standard engineering workflow follows a strict **Research -> Strategy -> Execution -> Retrospective** lifecycle, enhanced by **Intent-Driven Development (IDD)**.
 
-### 1. Research & Refinement (`/refine`)
+### 1. IDD Refinement (`/idd`)
 
-- **Action**: Use `bd ready` to find unblocked work.
-- **Goal**: Refine the Epic or Story. Ensure Acceptance Criteria (AC) are testable and the problem statement is clear.
-- **Output**: Detailed Beads tickets with descriptions and AC.
+- **Action**: Transform a fuzzy "Idea" into a "Product" (Epic) and "Intentions" (Features).
+- **Goal**: Establish the **Chain of Context**. Define the "Why" and "What" before deciding on the "How."
+- **Output**: Intent-driven Beads with explicit **Expectations** and **Boundaries**.
 
 ### 2. Strategy & Planning (`/analyze`)
 
 - **Action**: Analyze the ticket to determine the technical approach.
-- **Mandate**: Produce an **Implementation Plan**.
+- **Mandate**: Produce an **Implementation Plan** that incorporates IDD context (Intention, Expectations, Boundaries).
 - **Storage**: Plans MUST be saved as notes in the Obsidian `plans/` directory. No code is written in this phase.
 
 ### 3. Execution (`/implement`)

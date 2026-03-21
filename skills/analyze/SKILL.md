@@ -130,6 +130,11 @@ Produce a structured implementation plan using the following template:
 ## Executive Summary
 [Summary of scope and approach]
 
+## IDD Context (Intent-Driven Development)
+- **Intention (What):** [Link to parent Intention Bead or description]
+- **Expectations (How):** [Verifiable constraints and outcomes]
+- **Boundaries (What NOT to do):** [Explicit prohibitions and architectural constraints]
+
 ## Tickets in Scope
 | ID | Title | Status | Dependencies | Parallelizable |
 | -- | ----- | ------ | ------------ | -------------- |
