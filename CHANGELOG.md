@@ -1,3 +1,9 @@
+## [1.9.0] - 2026-03-21
+ - feat(idd): implement Intent-Driven Development (IDD) framework and `/idd` skill
+ - feat(workflow): add automated wikilinks between Obsidian artifacts for knowledge traversal
+ - refactor(idd): rename `/idd-refine` to `/idd` for streamlined UX
+ - docs(skills): standardize "References" section across all skill templates
+
 ## [1.8.0] - 2026-03-19
  - ced3738 feat: Restrict PM agent behavior and mandate LLM-driven refinement artifacts
  - a3fb932 Add pr-comments skill

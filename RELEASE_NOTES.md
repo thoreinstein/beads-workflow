@@ -1,4 +1,16 @@
+# Release Notes - v1.9.0 (2026-03-21)
+
+### Summary
+This release introduces the **Intent-Driven Development (IDD)** framework into the core workflow, significantly enhancing architectural context and knowledge traversal. It also implements automated cross-document wikilinks for better Obsidian graphing and knowledge management.
+
+### Highlights
+- **New Skill: `/idd`**: Transform fuzzy ideas into structured IDD artifacts (Product, Intention, Expectation, Boundaries) and seed Beads with explicit context.
+- **IDD-Enhanced Planning**: Implementation plans now include explicit "Intention," "Expectations," and "Boundaries" sections to ground technical strategy.
+- **Chain of Knowledge**: All Obsidian artifacts are now automatically threaded with wikilinks, creating a verifiable record from idea to implementation.
+- **Workflow Refinement**: Streamlined the refinement command to `/idd` and standardized the "References" section across all skill templates.
+
 # Release Notes - v1.8.0 (2026-03-19)
+
 
 ### Summary
 This release introduces significant enhancements to the refinement workflow, specialized sub-agents, and a new 'pr-comments' skill for automated PR management.
