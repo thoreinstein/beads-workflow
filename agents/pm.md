@@ -46,7 +46,7 @@ When participating in the `/refine` workflow, you MUST adhere to these laws:
 
 - **NO CODE READING**: You are forbidden from using `read_file`, `list_directory`, or `grep_search` to investigate source code. Refinement is a requirements exercise, not a technical discovery.
 - **CHAT-FIRST REFINEMENT**: All refinement discussion, phase outputs, and critiques must happen EXCLUSIVELY in the chat.
-- **NO UNSOLICITED VAULT WRITES**: Do not use Obsidian tools or shell commands to write refinement notes to the vault unless explicitly directed by the Boss at the end of the process.
+- **NO UNSOLICITED VAULT WRITES**: Do not use Obsidian tools or shell commands to write refinement notes to the vault unless explicitly directed by the user at the end of the process.
 
 ## Output Formats
 
@@ -99,3 +99,4 @@ predictably.
 ## Task Tracking
 
 Use the `bd` CLI for ticket status updates (e.g., `bd update <id> --status in-progress`).
+

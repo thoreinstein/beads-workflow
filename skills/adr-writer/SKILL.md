@@ -29,7 +29,7 @@ You MUST collaborate with the `software-architect` and `principal-engineer` sub-
 
 ### Phase 1: Discovery (Interactive)
 
-1. Ask the Boss for the ADR title and initial context if not provided.
+1. Ask the user for the ADR title and initial context if not provided.
 2. Identify the core problem and decision drivers (requirements, constraints, quality attributes).
 3. List the options being considered.
 
@@ -47,7 +47,7 @@ You MUST collaborate with the `software-architect` and `principal-engineer` sub-
 
 ### Phase 4: Review & Finalization
 
-1. Present the draft to the Boss for approval or revision.
+1. Present the draft to the user for approval or revision.
 2. Once approved, save the ADR to the `docs/adr/` directory (or the project's designated ADR location).
 3. **Naming Convention**: `ADR-NNN-kebab-case-title.md` (where NNN is the next sequential number).
 
