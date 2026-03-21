@@ -52,9 +52,28 @@ Create the Intent-driven Beads using the following format:
 `bd create --parent <product-id> --description "# [IDD Context]\n- **Intention:** <what>\n- **Expectations:** <how>\n- **Boundaries:** <not>\n" "<title>"`
 
 ## Obsidian Storage (MANDATORY)
-
 Save the final "IDD Context" note to Obsidian:
 `working/<project-name>/refinements/<product-name>-idd-context.md`
+
+### Template for Obsidian Note:
+```markdown
+# IDD Context: <product-name>
+
+## Product (Why)
+...
+
+## Intentions (What)
+...
+
+## Expectations (How)
+...
+
+## Boundaries (What NOT to do)
+...
+
+## References
+- [ ] No parent context (Initial Idea)
+```
 
 ## Constraints
 

@@ -53,10 +53,13 @@ created: YYYY-MM-DD
 
 1.  **Pattern**: A reusable code structure or standard.
     - *Path*: `<Base Path>/patterns/<Name>.md`
+    - *Links*: `[[working/<project-name>/summaries/<ticket-id>-summary.md|Originating Implementation]]`
 2.  **Trap**: A warning about a specific system behavior or "gotcha."
     - *Path*: `<Base Path>/traps/<Name>.md`
+    - *Links*: `[[working/<project-name>/summaries/<ticket-id>-summary.md|Originating Implementation]]`
 3.  **Decision**: An architectural record (ADR-lite).
     - *Path*: `<Base Path>/decisions/<Name>.md`
+    - *Links*: `[[working/<project-name>/summaries/<ticket-id>-summary.md|Originating Implementation]]`
 
 ### Phase 3: Project Synthesis (GEMINI.md)
 

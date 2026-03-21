@@ -151,6 +151,9 @@ Produce a structured implementation plan using the following template:
 
 ## Risk Assessment
 [Risks and mitigations]
+
+## References
+- **Refinement Context:** [[working/<project-name>/refinements/<product-name>-idd-context.md]]
 ```
 
 ### Step 5: Save Plan (MANDATORY)

@@ -294,6 +294,9 @@ At completion, document the implementation:
 ### Next Steps
 
 [Follow-up tasks if any]
+
+### References
+- **Implementation Plan:** [[working/<project-name>/plans/<ticket-id>-plan.md]]
 ```
 
 See `references/templates/implementation-summary.md` for the full template.
